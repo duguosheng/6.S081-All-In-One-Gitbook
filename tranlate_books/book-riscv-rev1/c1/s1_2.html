@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
                 
             
@@ -37,11 +41,11 @@
                 
             
                 
-                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
                 
-                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -106,8 +110,6 @@
     
 
     
-        
-        <li class="header">Summary</li>
         
         
     
@@ -389,8 +391,10 @@ write(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;hello 
 write(fd, <span class="hljs-string">&quot;world\n&quot;</span>, <span class="hljs-number">6</span>);
 </code></pre>
 <p>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;<code>fork</code>&#x548C;<code>dup</code>&#x8C03;&#x7528;&#x4ECE;&#x540C;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6D3E;&#x751F;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4E0D;&#x4F1A;&#x5171;&#x4EAB;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x6765;&#x81EA;&#x4E8E;&#x5BF9;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x7684;&#x6253;&#x5F00;&#x8C03;&#x7528;&#x3002;<code>dup</code>&#x5141;&#x8BB8;shell&#x6267;&#x884C;&#x8FD9;&#x6837;&#x7684;&#x547D;&#x4EE4;&#xFF1A;<code>ls existing-file non-existing-file &gt; tmp1 2&gt;&amp;1</code>&#x3002;<code>2&gt;&amp;1</code>&#x544A;&#x8BC9;shell&#x7ED9;&#x547D;&#x4EE4;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;2&#x662F;&#x63CF;&#x8FF0;&#x7B26;1&#x7684;&#x526F;&#x672C;&#x3002;&#x73B0;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x548C;&#x4E0D;&#x5B58;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x90FD;&#x4F1A;&#x663E;&#x793A;&#x5728;tmp1&#x6587;&#x4EF6;&#x4E2D;&#x3002;Xv6 shell&#x4E0D;&#x652F;&#x6301;&#x9519;&#x8BEF;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x7684;I/O&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x4F60;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5B83;&#x4E86;&#x3002;</p>
-<p>&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x9690;&#x85CF;&#x4E86;&#x5B83;&#x4EEC;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x7EC6;&#x8282;&#xFF1A;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;1&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x3001;&#x8BBE;&#x5907;&#xFF08;&#x5982;&#x63A7;&#x5236;&#x53F0;&#xFF09;&#x6216;&#x7BA1;&#x9053;&#x3002;</p>
-
+<p>&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x9690;&#x85CF;&#x4E86;&#x5B83;&#x4EEC;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x7EC6;&#x8282;&#xFF1A;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;1&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x3001;&#x8BBE;&#x5907;&#xFF08;&#x5982;&#x63A7;&#x5236;&#x53F0;&#xFF09;&#x6216;&#x7BA1;&#x9053;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">copyright by duguosheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-08-18 11:58:39
+</span></footer>
                                 
                                 </section>
                             
@@ -433,7 +437,7 @@ write(fd, <span class="hljs-string">&quot;world\n&quot;</span>, <span class="hlj
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2 I/O和文件描述符","level":"2.1.1.2","depth":3,"next":{"title":"1.3 管道","level":"2.1.1.3","depth":3,"path":"tranlate_books/book-riscv-rev1/c1/s1_3.md","ref":"tranlate_books/book-riscv-rev1/c1/s1_3.md","articles":[]},"previous":{"title":"1.1 进程和内存","level":"2.1.1.1","depth":3,"path":"tranlate_books/book-riscv-rev1/c1/s1_1.md","ref":"tranlate_books/book-riscv-rev1/c1/s1_1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","splitter","pageview-count","donate","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tranlate_books/book-riscv-rev1/c1/s1_2.md","mtime":"2021-08-18T03:58:39.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-18T14:37:37.699Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2 I/O和文件描述符","level":"2.1.1.2","depth":3,"next":{"title":"1.3 管道","level":"2.1.1.3","depth":3,"path":"tranlate_books/book-riscv-rev1/c1/s1_3.md","ref":"tranlate_books/book-riscv-rev1/c1/s1_3.md","articles":[]},"previous":{"title":"1.1 进程和内存","level":"2.1.1.1","depth":3,"path":"tranlate_books/book-riscv-rev1/c1/s1_1.md","ref":"tranlate_books/book-riscv-rev1/c1/s1_1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","github","chapter-fold","code","splitter","pageview-count","donate","tbfed-pagefooter","livereload"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/duguosheng"},"livereload":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pageview-count":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tranlate_books/book-riscv-rev1/c1/s1_2.md","mtime":"2021-08-18T03:58:39.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-18T15:30:34.533Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -441,6 +445,18 @@ write(fd, <span class="hljs-string">&quot;world\n&quot;</span>, <span class="hlj
         
     <script src="../../../gitbook/gitbook.js"></script>
     <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
     
         
         <script src="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
@@ -464,22 +480,6 @@ write(fd, <span class="hljs-string">&quot;world\n&quot;</span>, <span class="hlj
     
         
         <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
-    
-        
-        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
         
