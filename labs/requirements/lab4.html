@@ -1,0 +1,1888 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lab4: traps · 6.S081 All-In-One</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DuGuoSheng">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code-optimize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lab5.html" />
+    
+    
+    <link rel="prev" href="lab3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">概述</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    课程介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">文档翻译</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../tranlate_books/book-riscv-rev1/summary.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/summary.html">
+            
+                    
+                    book-riscv-rev1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../tranlate_books/book-riscv-rev1/c1/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s0.html">
+            
+                    
+                    第一章 操作系统接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../tranlate_books/book-riscv-rev1/c1/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s1.html">
+            
+                    
+                    1.1 进程和内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../tranlate_books/book-riscv-rev1/c1/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s2.html">
+            
+                    
+                    1.2 I/O和文件描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../../tranlate_books/book-riscv-rev1/c1/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s3.html">
+            
+                    
+                    1.3 管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="../../tranlate_books/book-riscv-rev1/c1/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s4.html">
+            
+                    
+                    1.4 文件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="../../tranlate_books/book-riscv-rev1/c1/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s5.html">
+            
+                    
+                    1.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="../../tranlate_books/book-riscv-rev1/c1/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s6.html">
+            
+                    
+                    1.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../tranlate_books/book-riscv-rev1/c2/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s0.html">
+            
+                    
+                    第二章 操作系统架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../tranlate_books/book-riscv-rev1/c2/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s1.html">
+            
+                    
+                    2.1 抽象系统资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../tranlate_books/book-riscv-rev1/c2/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s2.html">
+            
+                    
+                    2.2 用户态，核心态，以及系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../tranlate_books/book-riscv-rev1/c2/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s3.html">
+            
+                    
+                    2.3 内核组织
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../tranlate_books/book-riscv-rev1/c2/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s4.html">
+            
+                    
+                    2.4 代码：XV6架构篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../tranlate_books/book-riscv-rev1/c2/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s5.html">
+            
+                    
+                    2.5 进程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.6" data-path="../../tranlate_books/book-riscv-rev1/c2/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s6.html">
+            
+                    
+                    2.6 代码：启动XV6和第一个进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.7" data-path="../../tranlate_books/book-riscv-rev1/c2/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s7.html">
+            
+                    
+                    2.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.8" data-path="../../tranlate_books/book-riscv-rev1/c2/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s8.html">
+            
+                    
+                    2.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../tranlate_books/book-riscv-rev1/c3/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s0.html">
+            
+                    
+                    第三章 页表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../tranlate_books/book-riscv-rev1/c3/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s1.html">
+            
+                    
+                    3.1 页式硬件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../tranlate_books/book-riscv-rev1/c3/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s2.html">
+            
+                    
+                    3.2 内核地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../tranlate_books/book-riscv-rev1/c3/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s3.html">
+            
+                    
+                    3.3 代码：创建一个地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../tranlate_books/book-riscv-rev1/c3/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s4.html">
+            
+                    
+                    3.4 物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../../tranlate_books/book-riscv-rev1/c3/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s5.html">
+            
+                    
+                    3.5 代码：物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../../tranlate_books/book-riscv-rev1/c3/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s6.html">
+            
+                    
+                    3.6 进程地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../../tranlate_books/book-riscv-rev1/c3/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s7.html">
+            
+                    
+                    3.7 代码：sbrk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="../../tranlate_books/book-riscv-rev1/c3/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s8.html">
+            
+                    
+                    3.8 代码：exec
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="../../tranlate_books/book-riscv-rev1/c3/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s9.html">
+            
+                    
+                    3.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="../../tranlate_books/book-riscv-rev1/c3/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s10.html">
+            
+                    
+                    3.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../tranlate_books/book-riscv-rev1/c4/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s0.html">
+            
+                    
+                    第四章 陷阱指令和系统调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../../tranlate_books/book-riscv-rev1/c4/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s1.html">
+            
+                    
+                    4.1 RISC-V陷入机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../../tranlate_books/book-riscv-rev1/c4/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s2.html">
+            
+                    
+                    4.2 从用户空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../../tranlate_books/book-riscv-rev1/c4/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s3.html">
+            
+                    
+                    4.3 代码：调用系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../../tranlate_books/book-riscv-rev1/c4/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s4.html">
+            
+                    
+                    4.4 系统调用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../../tranlate_books/book-riscv-rev1/c4/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s5.html">
+            
+                    
+                    4.5 从内核空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../../tranlate_books/book-riscv-rev1/c4/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s6.html">
+            
+                    
+                    4.6 页面错误异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.7" data-path="../../tranlate_books/book-riscv-rev1/c4/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s7.html">
+            
+                    
+                    4.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.8" data-path="../../tranlate_books/book-riscv-rev1/c4/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s8.html">
+            
+                    
+                    4.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../tranlate_books/book-riscv-rev1/c5/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s0.html">
+            
+                    
+                    第五章 中断和设备驱动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="../../tranlate_books/book-riscv-rev1/c5/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s1.html">
+            
+                    
+                    5.1 代码：控制台输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="../../tranlate_books/book-riscv-rev1/c5/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s2.html">
+            
+                    
+                    5.2 代码：控制台输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="../../tranlate_books/book-riscv-rev1/c5/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s3.html">
+            
+                    
+                    5.3 驱动中的并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="../../tranlate_books/book-riscv-rev1/c5/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s4.html">
+            
+                    
+                    5.4 定时器中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.5" data-path="../../tranlate_books/book-riscv-rev1/c5/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s5.html">
+            
+                    
+                    5.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="../../tranlate_books/book-riscv-rev1/c5/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s6.html">
+            
+                    
+                    5.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../tranlate_books/book-riscv-rev1/c6/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s0.html">
+            
+                    
+                    第六章 锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../../tranlate_books/book-riscv-rev1/c6/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s1.html">
+            
+                    
+                    6.1 竞态条件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../../tranlate_books/book-riscv-rev1/c6/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s2.html">
+            
+                    
+                    6.2 代码：Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../../tranlate_books/book-riscv-rev1/c6/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s3.html">
+            
+                    
+                    6.3 代码：使用锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../../tranlate_books/book-riscv-rev1/c6/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s4.html">
+            
+                    
+                    6.4  死锁和锁排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="../../tranlate_books/book-riscv-rev1/c6/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s5.html">
+            
+                    
+                    6.5 锁和中断处理函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="../../tranlate_books/book-riscv-rev1/c6/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s6.html">
+            
+                    
+                    6.6 指令和内存访问排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="../../tranlate_books/book-riscv-rev1/c6/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s7.html">
+            
+                    
+                    6.7 睡眠锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="../../tranlate_books/book-riscv-rev1/c6/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s8.html">
+            
+                    
+                    6.8 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="../../tranlate_books/book-riscv-rev1/c6/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s9.html">
+            
+                    
+                    6.9 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../tranlate_books/book-riscv-rev1/c7/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s0.html">
+            
+                    
+                    第七章  调度
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../../tranlate_books/book-riscv-rev1/c7/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s1.html">
+            
+                    
+                    7.1 多路复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../../tranlate_books/book-riscv-rev1/c7/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s2.html">
+            
+                    
+                    7.2 代码：上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../../tranlate_books/book-riscv-rev1/c7/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s3.html">
+            
+                    
+                    7.3 代码：调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.4" data-path="../../tranlate_books/book-riscv-rev1/c7/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s4.html">
+            
+                    
+                    7.4 代码：mycpu和myproc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.5" data-path="../../tranlate_books/book-riscv-rev1/c7/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s5.html">
+            
+                    
+                    7.5 sleep与wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.6" data-path="../../tranlate_books/book-riscv-rev1/c7/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s6.html">
+            
+                    
+                    7.6 代码：sleep和wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.7" data-path="../../tranlate_books/book-riscv-rev1/c7/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s7.html">
+            
+                    
+                    7.7 代码：Pipes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.8" data-path="../../tranlate_books/book-riscv-rev1/c7/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s8.html">
+            
+                    
+                    7.8 代码：wait, exit和kill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.9" data-path="../../tranlate_books/book-riscv-rev1/c7/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s9.html">
+            
+                    
+                    7.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.10" data-path="../../tranlate_books/book-riscv-rev1/c7/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s10.html">
+            
+                    
+                    7.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../tranlate_books/book-riscv-rev1/c8/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s0.html">
+            
+                    
+                    第八章 文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../../tranlate_books/book-riscv-rev1/c8/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s1.html">
+            
+                    
+                    8.1 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../../tranlate_books/book-riscv-rev1/c8/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s2.html">
+            
+                    
+                    8.2 Buffer cache层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../../tranlate_books/book-riscv-rev1/c8/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s3.html">
+            
+                    
+                    8.3 代码：Buffer cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../../tranlate_books/book-riscv-rev1/c8/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s4.html">
+            
+                    
+                    8.4 日志层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../../tranlate_books/book-riscv-rev1/c8/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s5.html">
+            
+                    
+                    8.5 日志设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.6" data-path="../../tranlate_books/book-riscv-rev1/c8/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s6.html">
+            
+                    
+                    8.6 代码：日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.7" data-path="../../tranlate_books/book-riscv-rev1/c8/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s7.html">
+            
+                    
+                    8.7 代码：块分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.8" data-path="../../tranlate_books/book-riscv-rev1/c8/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s8.html">
+            
+                    
+                    8.8 索引结点层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.9" data-path="../../tranlate_books/book-riscv-rev1/c8/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s9.html">
+            
+                    
+                    8.9 代码：Inodes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.10" data-path="../../tranlate_books/book-riscv-rev1/c8/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s10.html">
+            
+                    
+                    8.10 代码： Inode包含内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.11" data-path="../../tranlate_books/book-riscv-rev1/c8/s11.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s11.html">
+            
+                    
+                    8.11 代码：目录层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.12" data-path="../../tranlate_books/book-riscv-rev1/c8/s12.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s12.html">
+            
+                    
+                    8.12 代码：路径名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.13" data-path="../../tranlate_books/book-riscv-rev1/c8/s13.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s13.html">
+            
+                    
+                    8.13 文件描述符层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.14" data-path="../../tranlate_books/book-riscv-rev1/c8/s14.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s14.html">
+            
+                    
+                    8.14 代码：系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.15" data-path="../../tranlate_books/book-riscv-rev1/c8/s15.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s15.html">
+            
+                    
+                    8.15 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.16" data-path="../../tranlate_books/book-riscv-rev1/c8/s16.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s16.html">
+            
+                    
+                    8.16 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../tranlate_books/Introduction.html">
+            
+                <a href="../../tranlate_books/Introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../tranlate_books/Use GUN Debugger.html">
+            
+                <a href="../../tranlate_books/Use GUN Debugger.html">
+            
+                    
+                    使用GNU Debugger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../tranlate_books/C Pointers, gdb.html">
+            
+                <a href="../../tranlate_books/C Pointers, gdb.html">
+            
+                    
+                    C Pointers, gdb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../tranlate_books/Calling Convention.html">
+            
+                <a href="../../tranlate_books/Calling Convention.html">
+            
+                    
+                    Calling Convention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">实验记录</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../use_git/git1.html">
+            
+                <a href="../use_git/git1.html">
+            
+                    
+                    版本控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    实验内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="lab1.html">
+            
+                <a href="lab1.html">
+            
+                    
+                    Lab1: Xv6 and Unix utilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="lab2.html">
+            
+                <a href="lab2.html">
+            
+                    
+                    Lab2: system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="lab3.html">
+            
+                <a href="lab3.html">
+            
+                    
+                    Lab3: page tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2.4" data-path="lab4.html">
+            
+                <a href="lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="lab5.html">
+            
+                <a href="lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="lab6.html">
+            
+                <a href="lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="lab7.html">
+            
+                <a href="lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="lab8.html">
+            
+                <a href="lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="lab9.html">
+            
+                <a href="lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../answers/summary.html">
+            
+                <a href="../answers/summary.html">
+            
+                    
+                    实验解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../answers/lab4.html">
+            
+                <a href="../answers/lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../answers/lab5.html">
+            
+                <a href="../answers/lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../answers/lab6.html">
+            
+                <a href="../answers/lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../answers/lab7.html">
+            
+                <a href="../answers/lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../answers/lab8.html">
+            
+                <a href="../answers/lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../answers/lab9.html">
+            
+                <a href="../answers/lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lab4: traps</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#lab4-traps"><b></b>Lab4: traps</a></li><li><span class="title-icon "></span><a href="#risc-v-assembly-easy"><b></b>RISC-V assembly (easy)</a></li><li><span class="title-icon "></span><a href="#backtracemoderate"><b></b>Backtrace(moderate)</a></li><li><span class="title-icon "></span><a href="#alarmhard"><b></b>Alarm(Hard)</a></li><ul><li><span class="title-icon "></span><a href="#test0-invoke-handler&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;"><b></b>test0: invoke handler(&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;)</a></li><li><span class="title-icon "></span><a href="#test1test2-resume-interrupted-code&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;"><b></b>test1/test2(): resume interrupted code(&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;)</a></li></ul><li><span class="title-icon "></span><a href="#&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><b></b>&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;</a></li></ul></div><a href="#lab4-traps" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lab4-traps"><a name="lab4-traps" class="anchor-navigation-ex-anchor" href="#lab4-traps"><i class="fa fa-link" aria-hidden="true"></i></a>Lab4: traps</h1>
+<p>&#x672C;&#x5B9E;&#x9A8C;&#x63A2;&#x7D22;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x9677;&#x9631;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3002;&#x60A8;&#x5C06;&#x9996;&#x5148;&#x4F7F;&#x7528;&#x6808;&#x505A;&#x4E00;&#x4E2A;&#x70ED;&#x8EAB;&#x7EC3;&#x4E60;&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7EA7;&#x9677;&#x9631;&#x5904;&#x7406;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<blockquote>
+<p>[!WARNING|label:Attention]
+&#x5F00;&#x59CB;&#x7F16;&#x7801;&#x4E4B;&#x524D;&#xFF0C;&#x8BF7;&#x9605;&#x8BFB;xv6&#x624B;&#x518C;&#x7684;&#x7B2C;4&#x7AE0;&#x548C;&#x76F8;&#x5173;&#x6E90;&#x6587;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><strong><em>kernel/trampoline.S</em></strong>&#xFF1A;&#x6D89;&#x53CA;&#x4ECE;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x5230;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x518D;&#x5230;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x7684;&#x8F6C;&#x6362;&#x7684;&#x7A0B;&#x5E8F;&#x96C6;</li>
+<li><strong><em>kernel/trap.c</em></strong>&#xFF1A;&#x5904;&#x7406;&#x6240;&#x6709;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;</li>
+</ul>
+</blockquote>
+<p>&#x8981;&#x542F;&#x52A8;&#x5B9E;&#x9A8C;&#xFF0C;&#x8BF7;&#x5207;&#x6362;&#x5230;<code>traps</code>&#x5206;&#x652F;&#xFF1A;</p>
+<pre><code class="lang-bash">$ git fetch
+$ git checkout traps
+$ make clean
+</code></pre>
+<h1 id="risc-v-assembly-easy"><a name="risc-v-assembly-easy" class="anchor-navigation-ex-anchor" href="#risc-v-assembly-easy"><i class="fa fa-link" aria-hidden="true"></i></a>RISC-V assembly (easy)</h1>
+<p>&#x7406;&#x89E3;&#x4E00;&#x70B9;RISC-V&#x6C47;&#x7F16;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5728;6.004&#x4E2D;&#x63A5;&#x89E6;&#x8FC7;&#x3002;xv6&#x4ED3;&#x5E93;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;<strong><em>user/call.c</em></strong>&#x3002;&#x6267;&#x884C;<code>make fs.img</code>&#x7F16;&#x8BD1;&#x5B83;&#xFF0C;&#x5E76;&#x5728;<strong><em>user/call.asm</em></strong>&#x4E2D;&#x751F;&#x6210;&#x53EF;&#x8BFB;&#x7684;&#x6C47;&#x7F16;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x9605;&#x8BFB;<strong><em>call.asm</em></strong>&#x4E2D;&#x51FD;&#x6570;<code>g</code>&#x3001;<code>f</code>&#x548C;<code>main</code>&#x7684;&#x4EE3;&#x7801;&#x3002;RISC-V&#x7684;&#x4F7F;&#x7528;&#x624B;&#x518C;&#x5728;<a href="https://pdos.csail.mit.edu/6.828/2020/reference.html" target="_blank">&#x53C2;&#x8003;&#x9875;</a>&#x4E0A;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x60A8;&#x5E94;&#x8BE5;&#x56DE;&#x7B54;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF08;&#x5C06;&#x7B54;&#x6848;&#x5B58;&#x50A8;&#x5728;<strong><em>answers-traps.txt</em></strong>&#x6587;&#x4EF6;&#x4E2D;&#xFF09;&#xFF1A;</p>
+<ol>
+<li>&#x54EA;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x4FDD;&#x5B58;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF1F;&#x4F8B;&#x5982;&#xFF0C;&#x5728;<code>main</code>&#x5BF9;<code>printf</code>&#x7684;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x54EA;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x4FDD;&#x5B58;13&#xFF1F;</li>
+<li><code>main</code>&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;&#x51FD;&#x6570;<code>f</code>&#x7684;&#x8C03;&#x7528;&#x5728;&#x54EA;&#x91CC;&#xFF1F;&#x5BF9;<code>g</code>&#x7684;&#x8C03;&#x7528;&#x5728;&#x54EA;&#x91CC;(&#x63D0;&#x793A;&#xFF1A;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x80FD;&#x4F1A;&#x5C06;&#x51FD;&#x6570;&#x5185;&#x8054;&#xFF09;</li>
+<li><code>printf</code>&#x51FD;&#x6570;&#x4F4D;&#x4E8E;&#x54EA;&#x4E2A;&#x5730;&#x5740;&#xFF1F;</li>
+<li>&#x5728;<code>main</code>&#x4E2D;<code>printf</code>&#x7684;<code>jalr</code>&#x4E4B;&#x540E;&#x7684;&#x5BC4;&#x5B58;&#x5668;<code>ra</code>&#x4E2D;&#x6709;&#x4EC0;&#x4E48;&#x503C;&#xFF1F;</li>
+<li>&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x3002;</li>
+</ol>
+<pre><code class="lang-c"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">0x00646c72</span>;
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;H%x Wo%s&quot;</span>, <span class="hljs-number">57616</span>, &amp;i);
+</code></pre>
+<p>&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x51FA;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x8FD9;&#x662F;&#x5C06;&#x5B57;&#x8282;&#x6620;&#x5C04;&#x5230;&#x5B57;&#x7B26;&#x7684;<a href="http://web.cs.mun.ca/~michael/c/ascii-table.html" target="_blank">ASCII&#x7801;&#x8868;</a>&#x3002;</p>
+<p>&#x8F93;&#x51FA;&#x53D6;&#x51B3;&#x4E8E;RISC-V&#x5C0F;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x4E8B;&#x5B9E;&#x3002;&#x5982;&#x679C;RISC-V&#x662F;&#x5927;&#x7AEF;&#x5B58;&#x50A8;&#xFF0C;&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4F60;&#x4F1A;&#x628A;<code>i</code>&#x8BBE;&#x7F6E;&#x6210;&#x4EC0;&#x4E48;&#xFF1F;&#x662F;&#x5426;&#x9700;&#x8981;&#x5C06;<code>57616</code>&#x66F4;&#x6539;&#x4E3A;&#x5176;&#x4ED6;&#x503C;&#xFF1F;</p>
+<p><a href="http://www.webopedia.com/TERM/b/big_endian.html" target="_blank">&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x5C0F;&#x7AEF;&#x548C;&#x5927;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x63CF;&#x8FF0;</a>&#x548C;&#x4E00;&#x4E2A;<a href="http://www.networksorcery.com/enp/ien/ien137.txt" target="_blank">&#x66F4;&#x5F02;&#x60F3;&#x5929;&#x5F00;&#x7684;&#x63CF;&#x8FF0;</a>&#x3002;</p>
+<ol>
+<li>&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x201C;<code>y=</code>&#x201D;&#x4E4B;&#x540E;&#x5C06;&#x6253;&#x5370;&#x4EC0;&#x4E48;(&#x6CE8;&#xFF1A;&#x7B54;&#x6848;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x503C;&#xFF09;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D1;&#x751F;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF1F;</li>
+</ol>
+<pre><code class="lang-c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x=%d y=%d&quot;</span>, <span class="hljs-number">3</span>);
+</code></pre>
+<h1 id="backtracemoderate"><a name="backtracemoderate" class="anchor-navigation-ex-anchor" href="#backtracemoderate"><i class="fa fa-link" aria-hidden="true"></i></a>Backtrace(moderate)</h1>
+<p>&#x56DE;&#x6EAF;(Backtrace)&#x901A;&#x5E38;&#x5BF9;&#x4E8E;&#x8C03;&#x8BD5;&#x5F88;&#x6709;&#x7528;&#xFF1A;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5B58;&#x653E;&#x4E8E;&#x6808;&#x4E0A;&#x7528;&#x4E8E;&#x6307;&#x793A;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#x4F4D;&#x7F6E;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x5728;<strong><em>kernel/printf.c</em></strong>&#x4E2D;&#x5B9E;&#x73B0;&#x540D;&#x4E3A;<code>backtrace()</code>&#x7684;&#x51FD;&#x6570;&#x3002;&#x5728;<code>sys_sleep</code>&#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5BF9;&#x6B64;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;<code>bttest</code>&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x8C03;&#x7528;<code>sys_sleep</code>&#x3002;&#x4F60;&#x7684;&#x8F93;&#x51FA;&#x5E94;&#x8BE5;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-bash">backtrace:
+0x0000000080002cda
+0x0000000080002bb6
+0x0000000080002898
+</code></pre>
+<p>&#x200B;        &#x5728;<code>bttest</code>&#x9000;&#x51FA;qemu&#x540E;&#x3002;&#x5728;&#x4F60;&#x7684;&#x7EC8;&#x7AEF;&#xFF1A;&#x5730;&#x5740;&#x6216;&#x8BB8;&#x4F1A;&#x7A0D;&#x6709;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x4F60;&#x8FD0;&#x884C;<code>addr2line -e kernel/kernel</code>&#xFF08;&#x6216;<code>riscv64-unknown-elf-addr2line -e kernel/kernel</code>&#xFF09;&#xFF0C;&#x5E76;&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x5730;&#x5740;&#x526A;&#x5207;&#x7C98;&#x8D34;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash">$ addr2line <span class="hljs-_">-e</span> kernel/kernel
+0x0000000080002de2
+0x0000000080002f4a
+0x0000000080002bfc
+Ctrl-D
+</code></pre>
+<p>&#x200B;        &#x4F60;&#x5E94;&#x8BE5;&#x770B;&#x5230;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code>kernel/sysproc.c:74
+kernel/syscall.c:224
+kernel/trap.c:85
+</code></pre><p>&#x200B;        &#x7F16;&#x8BD1;&#x5668;&#x5411;&#x6BCF;&#x4E00;&#x4E2A;&#x6808;&#x5E27;&#x4E2D;&#x653E;&#x7F6E;&#x4E00;&#x4E2A;&#x5E27;&#x6307;&#x9488;&#xFF08;frame pointer&#xFF09;&#x4FDD;&#x5B58;&#x8C03;&#x7528;&#x8005;&#x5E27;&#x6307;&#x9488;&#x7684;&#x5730;&#x5740;&#x3002;&#x4F60;&#x7684;<code>backtrace</code>&#x5E94;&#x5F53;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5E27;&#x6307;&#x9488;&#x6765;&#x904D;&#x5386;&#x6808;&#xFF0C;&#x5E76;&#x5728;&#x6BCF;&#x4E2A;&#x6808;&#x5E27;&#x4E2D;&#x6253;&#x5370;&#x4FDD;&#x5B58;&#x7684;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x3002;</p>
+<p><strong>&#x63D0;&#x793A;&#xFF1A;</strong></p>
+<ul>
+<li><p>&#x5728;<strong><em>kernel/defs.h</em></strong>&#x4E2D;&#x6DFB;&#x52A0;<code>backtrace</code>&#x7684;&#x539F;&#x578B;&#xFF0C;&#x90A3;&#x6837;&#x4F60;&#x5C31;&#x80FD;&#x5728;<code>sys_sleep</code>&#x4E2D;&#x5F15;&#x7528;<code>backtrace</code></p>
+</li>
+<li><p>GCC&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x7684;&#x5E27;&#x6307;&#x9488;&#x4FDD;&#x5B58;&#x5728;<code>s0</code>&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5C06;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x6DFB;&#x52A0;&#x5230;<strong><em>kernel/riscv.h</em></strong></p>
+</li>
+</ul>
+<pre><code class="lang-c">static inline uint64
+r_fp()
+{
+  uint64 x;
+  asm volatile(&quot;mv %0, s0&quot; : &quot;=r&quot; (x) );
+  return x;
+}
+</code></pre>
+<p>&#x200B;        &#x5E76;&#x5728;<code>backtrace</code>&#x4E2D;&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x6765;&#x8BFB;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x5E27;&#x6307;&#x9488;&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F7F;&#x7528;<a href="https://gcc.gnu.org/onlinedocs/gcc/Using-Assembly-Language-with-C.html" target="_blank">&#x5185;&#x8054;&#x6C47;&#x7F16;</a>&#x6765;&#x8BFB;&#x53D6;<code>s0</code></p>
+<ul>
+<li>&#x8FD9;&#x4E2A;<a href="https://pdos.csail.mit.edu/6.828/2020/lec/l-riscv-slides.pdf" target="_blank">&#x8BFE;&#x5802;&#x7B14;&#x8BB0;</a>&#x4E2D;&#x6709;&#x5F20;&#x6808;&#x5E27;&#x5E03;&#x5C40;&#x56FE;&#x3002;&#x6CE8;&#x610F;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x4F4D;&#x4E8E;&#x6808;&#x5E27;&#x5E27;&#x6307;&#x9488;&#x7684;&#x56FA;&#x5B9A;&#x504F;&#x79FB;(-8)&#x4F4D;&#x7F6E;&#xFF0C;&#x5E76;&#x4E14;&#x4FDD;&#x5B58;&#x7684;&#x5E27;&#x6307;&#x9488;&#x4F4D;&#x4E8E;&#x5E27;&#x6307;&#x9488;&#x7684;&#x56FA;&#x5B9A;&#x504F;&#x79FB;(-16)&#x4F4D;&#x7F6E;</li>
+</ul>
+<p><img src="images/p2.png" alt="img"></p>
+<ul>
+<li>XV6&#x5728;&#x5185;&#x6838;&#x4E2D;&#x4EE5;&#x9875;&#x9762;&#x5BF9;&#x9F50;&#x7684;&#x5730;&#x5740;&#x4E3A;&#x6BCF;&#x4E2A;&#x6808;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>PGROUNDDOWN(fp)</code>&#x548C;<code>PGROUNDUP(fp)</code>&#xFF08;&#x53C2;&#x89C1;<strong><em>kernel/riscv.h</em></strong>&#xFF09;&#x6765;&#x8BA1;&#x7B97;&#x6808;&#x9875;&#x9762;&#x7684;&#x9876;&#x90E8;&#x548C;&#x5E95;&#x90E8;&#x5730;&#x5740;&#x3002;&#x8FD9;&#x4E9B;&#x6570;&#x5B57;&#x5BF9;&#x4E8E;<code>backtrace</code>&#x7EC8;&#x6B62;&#x5FAA;&#x73AF;&#x662F;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x4E00;&#x65E6;&#x4F60;&#x7684;<code>backtrace</code>&#x80FD;&#x591F;&#x8FD0;&#x884C;&#xFF0C;&#x5C31;&#x5728;<strong><em>kernel/printf.c</em></strong>&#x7684;<code>panic</code>&#x4E2D;&#x8C03;&#x7528;&#x5B83;&#xFF0C;&#x90A3;&#x6837;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5728;<code>panic</code>&#x53D1;&#x751F;&#x65F6;&#x770B;&#x5230;&#x5185;&#x6838;&#x7684;<code>backtrace</code>&#x3002;</p>
+<h1 id="alarmhard"><a name="alarmhard" class="anchor-navigation-ex-anchor" href="#alarmhard"><i class="fa fa-link" aria-hidden="true"></i></a>Alarm(Hard)</h1>
+<blockquote>
+<p>[!TIP|label:YOUR JOB]
+&#x5728;&#x8FD9;&#x4E2A;&#x7EC3;&#x4E60;&#x4E2D;&#x4F60;&#x5C06;&#x5411;XV6&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x5728;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;CPU&#x7684;&#x65F6;&#x95F4;&#x5185;&#xFF0C;XV6&#x5B9A;&#x671F;&#x5411;&#x8FDB;&#x7A0B;&#x53D1;&#x51FA;&#x8B66;&#x62A5;&#x3002;&#x8FD9;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x5E0C;&#x671B;&#x9650;&#x5236;CPU&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x7684;&#x53D7;&#x8BA1;&#x7B97;&#x9650;&#x5236;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x6216;&#x8005;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x8BA1;&#x7B97;&#x7684;&#x540C;&#x65F6;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x5468;&#x671F;&#x6027;&#x64CD;&#x4F5C;&#x7684;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x5F88;&#x6709;&#x7528;&#x3002;&#x66F4;&#x666E;&#x904D;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x4F60;&#x5C06;&#x5B9E;&#x73B0;&#x7528;&#x6237;&#x7EA7;&#x4E2D;&#x65AD;/&#x6545;&#x969C;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684;&#x4E00;&#x79CD;&#x521D;&#x7EA7;&#x5F62;&#x5F0F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#x5904;&#x7406;&#x9875;&#x9762;&#x6545;&#x969C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x901A;&#x8FC7;&#x4E86;<code>alarmtest</code>&#x548C;<code>usertests</code>&#x5C31;&#x662F;&#x6B63;&#x786E;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x4F60;&#x5E94;&#x5F53;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>sigalarm(interval, handler)</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E86;<code>sigalarm(n, fn)</code>&#xFF0C;&#x90A3;&#x4E48;&#x6BCF;&#x5F53;&#x7A0B;&#x5E8F;&#x6D88;&#x8017;&#x4E86;CPU&#x65F6;&#x95F4;&#x8FBE;&#x5230;n&#x4E2A;&#x201C;&#x6EF4;&#x7B54;&#x201D;&#xFF0C;&#x5185;&#x6838;&#x5E94;&#x5F53;&#x4F7F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x51FD;&#x6570;<code>fn</code>&#x88AB;&#x8C03;&#x7528;&#x3002;&#x5F53;<code>fn</code>&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x5E94;&#x7528;&#x5E94;&#x5F53;&#x5728;&#x5B83;&#x79BB;&#x5F00;&#x7684;&#x5730;&#x65B9;&#x6062;&#x590D;&#x6267;&#x884C;&#x3002;&#x5728;XV6&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x6EF4;&#x7B54;&#x662F;&#x4E00;&#x6BB5;&#x76F8;&#x5F53;&#x4EFB;&#x610F;&#x7684;&#x65F6;&#x95F4;&#x5355;&#x5143;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x786C;&#x4EF6;&#x8BA1;&#x65F6;&#x5668;&#x751F;&#x6210;&#x4E2D;&#x65AD;&#x7684;&#x9891;&#x7387;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E86;<code>sigalarm(0, 0)</code>&#xFF0C;&#x7CFB;&#x7EDF;&#x5E94;&#x5F53;&#x505C;&#x6B62;&#x751F;&#x6210;&#x5468;&#x671F;&#x6027;&#x7684;&#x62A5;&#x8B66;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4F60;&#x5C06;&#x5728;XV6&#x7684;&#x5B58;&#x50A8;&#x5E93;&#x4E2D;&#x627E;&#x5230;&#x540D;&#x4E3A;<strong><em>user/alarmtest.c</em></strong>&#x7684;&#x6587;&#x4EF6;&#x3002;&#x5C06;&#x5176;&#x6DFB;&#x52A0;&#x5230;<strong><em>Makefile</em></strong>&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x4F60;&#x5FC5;&#x987B;&#x6DFB;&#x52A0;&#x4E86;<code>sigalarm</code>&#x548C;<code>sigreturn</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x540E;&#x624D;&#x80FD;&#x6B63;&#x786E;&#x7F16;&#x8BD1;&#xFF08;&#x5F80;&#x4E0B;&#x770B;&#xFF09;&#x3002;</p>
+<p><code>alarmtest</code>&#x5728;<code>test0</code>&#x4E2D;&#x8C03;&#x7528;&#x4E86;<code>sigalarm(2, periodic)</code>&#x6765;&#x8981;&#x6C42;&#x5185;&#x6838;&#x6BCF;&#x9694;&#x4E24;&#x4E2A;&#x6EF4;&#x7B54;&#x5F3A;&#x5236;&#x8C03;&#x7528;<code>periodic()</code>&#xFF0C;&#x7136;&#x540E;&#x65CB;&#x8F6C;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728;<strong><em>user/alarmtest.asm</em></strong>&#x4E2D;&#x770B;&#x5230;<code>alarmtest</code>&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x6216;&#x8BB8;&#x4F1A;&#x4FBF;&#x4E8E;&#x8C03;&#x8BD5;&#x3002;&#x5F53;<code>alarmtest</code>&#x4EA7;&#x751F;&#x5982;&#x4E0B;&#x8F93;&#x51FA;&#x5E76;&#x4E14;<code>usertests</code>&#x4E5F;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x4F60;&#x7684;&#x65B9;&#x6848;&#x5C31;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-bash">$ alarmtest
+<span class="hljs-built_in">test</span>0 start
+........alarm!
+<span class="hljs-built_in">test</span>0 passed
+<span class="hljs-built_in">test</span>1 start
+...alarm!
+..alarm!
+...alarm!
+..alarm!
+...alarm!
+..alarm!
+...alarm!
+..alarm!
+...alarm!
+..alarm!
+<span class="hljs-built_in">test</span>1 passed
+<span class="hljs-built_in">test</span>2 start
+................alarm!
+<span class="hljs-built_in">test</span>2 passed
+$ usertests
+...
+ALL TESTS PASSED
+$
+</code></pre>
+<p>&#x200B;        &#x5F53;&#x4F60;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F60;&#x7684;&#x65B9;&#x6848;&#x4E5F;&#x8BB8;&#x4EC5;&#x6709;&#x51E0;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x5982;&#x4F55;&#x6B63;&#x786E;&#x8FD0;&#x884C;&#x662F;&#x4E00;&#x4E2A;&#x68D8;&#x624B;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;&#x539F;&#x59CB;&#x5B58;&#x50A8;&#x5E93;&#x4E2D;&#x7684;<strong><em>alarmtest.c</em></strong>&#x7248;&#x672C;&#x6D4B;&#x8BD5;&#x60A8;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;<strong><em>alarmtest.c</em></strong>&#x6765;&#x5E2E;&#x52A9;&#x8C03;&#x8BD5;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x786E;&#x4FDD;&#x539F;&#x6765;&#x7684;<code>alarmtest</code>&#x663E;&#x793A;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x90FD;&#x901A;&#x8FC7;&#x4E86;&#x3002;</p>
+<h2 id="test0-invoke-handler&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;"><a name="test0-invoke-handler&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;" class="anchor-navigation-ex-anchor" href="#test0-invoke-handler&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>test0: invoke handler(&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;)</h2>
+<p>&#x9996;&#x5148;&#x4FEE;&#x6539;&#x5185;&#x6838;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x62A5;&#x8B66;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x5C06;&#x5BFC;&#x81F4;<code>test0</code>&#x6253;&#x5370;&#x201C;alarm!&#x201D;&#x3002;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x8F93;&#x51FA;&#x201C;alarm!&#x201D;&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1B;&#x5982;&#x679C;&#x60A8;&#x7684;&#x7A0B;&#x5E8F;&#x5728;&#x6253;&#x5370;&#x201C;alarm&#xFF01;&#x201D;&#x540E;&#x5D29;&#x6E83;&#xFF0C;&#x5BF9;&#x4E8E;&#x76EE;&#x524D;&#x6765;&#x8BF4;&#x4E5F;&#x662F;&#x6B63;&#x5E38;&#x7684;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E9B;<strong>&#x63D0;&#x793A;</strong>&#xFF1A;</p>
+<ul>
+<li><p>&#x60A8;&#x9700;&#x8981;&#x4FEE;&#x6539;<strong><em>Makefile</em></strong>&#x4EE5;&#x4F7F;<strong><em>alarmtest.c</em></strong>&#x88AB;&#x7F16;&#x8BD1;&#x4E3A;xv6&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x3002;</p>
+</li>
+<li><p>&#x653E;&#x5165;<strong><em>user/user.h</em></strong>&#x7684;&#x6B63;&#x786E;&#x58F0;&#x660E;&#x662F;&#xFF1A;</p>
+</li>
+</ul>
+<pre><code class="lang-c">int sigalarm(int ticks, void (*handler)());
+int sigreturn(void);
+</code></pre>
+<ul>
+<li><p>&#x66F4;&#x65B0;<strong><em>user/usys.pl</em></strong>&#xFF08;&#x6B64;&#x6587;&#x4EF6;&#x751F;&#x6210;<strong><em>user/usys.S</em></strong>&#xFF09;&#x3001;<strong><em>kernel/syscall.h</em></strong>&#x548C;<strong><em>kernel/syscall.c</em></strong>&#x4EE5;&#x5141;&#x8BB8;<code>alarmtest</code>&#x8C03;&#x7528;<code>sigalarm</code>&#x548C;<code>sigreurn</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3002;</p>
+</li>
+<li><p>&#x76EE;&#x524D;&#x6765;&#x8BF4;&#xFF0C;&#x4F60;&#x7684;<code>sys_sigreturn</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x5E94;&#x8BE5;&#x662F;&#x96F6;&#x3002;</p>
+</li>
+<li><p>&#x4F60;&#x7684;<code>sys_sigalarm()</code>&#x5E94;&#x8BE5;&#x5C06;&#x62A5;&#x8B66;&#x95F4;&#x9694;&#x548C;&#x6307;&#x5411;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#x5B58;&#x50A8;&#x5728;<code>struct proc</code>&#x7684;&#x65B0;&#x5B57;&#x6BB5;&#x4E2D;&#xFF08;&#x4F4D;&#x4E8E;<strong><em>kernel/proc.h</em></strong>&#xFF09;&#x3002;</p>
+</li>
+<li><p>&#x4F60;&#x4E5F;&#x9700;&#x8981;&#x5728;<code>struct proc</code>&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x65B0;&#x5B57;&#x6BB5;&#x3002;&#x7528;&#x4E8E;&#x8DDF;&#x8E2A;&#x81EA;&#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#xFF08;&#x6216;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#xFF09;&#x5230;&#x8FDB;&#x7A0B;&#x7684;&#x62A5;&#x8B66;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x95F4;&#x7ECF;&#x5386;&#x4E86;&#x591A;&#x5C11;&#x6EF4;&#x7B54;&#xFF1B;&#x60A8;&#x53EF;&#x4EE5;&#x5728;<strong><em>proc.c</em></strong>&#x7684;<code>allocproc()</code>&#x4E2D;&#x521D;&#x59CB;&#x5316;<code>proc</code>&#x5B57;&#x6BB5;&#x3002;</p>
+</li>
+<li><p>&#x6BCF;&#x4E00;&#x4E2A;&#x6EF4;&#x7B54;&#x58F0;&#xFF0C;&#x786C;&#x4EF6;&#x65F6;&#x949F;&#x5C31;&#x4F1A;&#x5F3A;&#x5236;&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E2D;&#x65AD;&#x5728;<strong><em>kernel/trap.c</em></strong>&#x4E2D;&#x7684;<code>usertrap()</code>&#x4E2D;&#x5904;&#x7406;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x4EA7;&#x751F;&#x4E86;&#x8BA1;&#x65F6;&#x5668;&#x4E2D;&#x65AD;&#xFF0C;&#x60A8;&#x53EA;&#x60F3;&#x64CD;&#x7EB5;&#x8FDB;&#x7A0B;&#x7684;&#x62A5;&#x8B66;&#x6EF4;&#x7B54;&#xFF1B;&#x4F60;&#x9700;&#x8981;&#x5199;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span>(which_dev == <span class="hljs-number">2</span>) ...
+</code></pre>
+<ul>
+<li><p>&#x4EC5;&#x5F53;&#x8FDB;&#x7A0B;&#x6709;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x65F6;&#x624D;&#x8C03;&#x7528;&#x62A5;&#x8B66;&#x51FD;&#x6570;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x7528;&#x6237;&#x62A5;&#x8B66;&#x51FD;&#x6570;&#x7684;&#x5730;&#x5740;&#x53EF;&#x80FD;&#x662F;0&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5728;<strong><em>user/alarmtest.asm</em></strong>&#x4E2D;&#xFF0C;<code>periodic</code>&#x4F4D;&#x4E8E;&#x5730;&#x5740;0&#xFF09;&#x3002;</p>
+</li>
+<li><p>&#x60A8;&#x9700;&#x8981;&#x4FEE;&#x6539;<code>usertrap()</code>&#xFF0C;&#x4EE5;&#x4FBF;&#x5F53;&#x8FDB;&#x7A0B;&#x7684;&#x62A5;&#x8B66;&#x95F4;&#x9694;&#x671F;&#x6EE1;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x51FD;&#x6570;&#x3002;&#x5F53;RISC-V&#x4E0A;&#x7684;&#x9677;&#x9631;&#x8FD4;&#x56DE;&#x5230;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x65F6;&#xFF0C;&#x4EC0;&#x4E48;&#x51B3;&#x5B9A;&#x4E86;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x4EE3;&#x7801;&#x6062;&#x590D;&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;&#x5730;&#x5740;&#xFF1F;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x60A8;&#x544A;&#x8BC9;qemu&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;CPU&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528;gdb&#x67E5;&#x770B;&#x9677;&#x9631;&#x4F1A;&#x66F4;&#x5BB9;&#x6613;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD0;&#x884C;</p>
+</li>
+</ul>
+<pre><code class="lang-bash">make CPUS=1 qemu-gdb
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;<code>alarmtest</code>&#x6253;&#x5370;&#x201C;alarm!&#x201D;&#xFF0C;&#x5219;&#x60A8;&#x5DF2;&#x6210;&#x529F;&#x3002;</li>
+</ul>
+<h2 id="test1test2-resume-interrupted-code&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;"><a name="test1test2-resume-interrupted-code&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;" class="anchor-navigation-ex-anchor" href="#test1test2-resume-interrupted-code&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>test1/test2(): resume interrupted code(&#x6062;&#x590D;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;)</h2>
+<p><code>alarmtest</code>&#x6253;&#x5370;&#x201C;alarm!&#x201D;&#x540E;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5728;<code>test0</code>&#x6216;<code>test1</code>&#x4E2D;&#x5D29;&#x6E83;&#xFF0C;&#x6216;&#x8005;<code>alarmtest</code>&#xFF08;&#x6700;&#x540E;&#xFF09;&#x6253;&#x5370;&#x201C;test1 failed&#x201D;&#xFF0C;&#x6216;&#x8005;<code>alarmtest</code>&#x672A;&#x6253;&#x5370;&#x201C;test1 passed&#x201D;&#x5C31;&#x9000;&#x51FA;&#x3002;&#x8981;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5FC5;&#x987B;&#x786E;&#x4FDD;&#x5B8C;&#x6210;&#x62A5;&#x8B66;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x540E;&#x8FD4;&#x56DE;&#x5230;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x6700;&#x521D;&#x88AB;&#x8BA1;&#x65F6;&#x5668;&#x4E2D;&#x65AD;&#x7684;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x3002;&#x5FC5;&#x987B;&#x786E;&#x4FDD;&#x5BC4;&#x5B58;&#x5668;&#x5185;&#x5BB9;&#x6062;&#x590D;&#x5230;&#x4E2D;&#x65AD;&#x65F6;&#x7684;&#x503C;&#xFF0C;&#x4EE5;&#x4FBF;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x5728;&#x62A5;&#x8B66;&#x540E;&#x53EF;&#x4EE5;&#x4E0D;&#x53D7;&#x5E72;&#x6270;&#x5730;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x60A8;&#x5E94;&#x8BE5;&#x5728;&#x6BCF;&#x6B21;&#x62A5;&#x8B66;&#x8BA1;&#x6570;&#x5668;&#x5173;&#x95ED;&#x540E;&#x201C;&#x91CD;&#x65B0;&#x914D;&#x7F6E;&#x201D;&#x5B83;&#xFF0C;&#x4EE5;&#x4FBF;&#x5468;&#x671F;&#x6027;&#x5730;&#x8C03;&#x7528;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8D77;&#x59CB;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x4E3A;&#x60A8;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#xFF1A;&#x7528;&#x6237;&#x62A5;&#x8B66;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5728;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;<code>sigreurn</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3002;&#x8BF7;&#x67E5;&#x770B;<strong><em>alarmtest.c</em></strong>&#x4E2D;&#x7684;<code>periodic</code>&#x4F5C;&#x4E3A;&#x793A;&#x4F8B;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x5230;<code>usertrap</code>&#x548C;<code>sys_sigreurn</code>&#x4E2D;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x4EE3;&#x7801;&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#xFF0C;&#x4EE5;&#x4F7F;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x5728;&#x5904;&#x7406;&#x5B8C;&#x8B66;&#x62A5;&#x540E;&#x6B63;&#x786E;&#x6062;&#x590D;&#x3002;</p>
+<p><strong>&#x63D0;&#x793A;&#xFF1A;</strong></p>
+<ul>
+<li><p>&#x60A8;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5C06;&#x8981;&#x6C42;&#x60A8;&#x4FDD;&#x5B58;&#x548C;&#x6062;&#x590D;&#x5BC4;&#x5B58;&#x5668;&#x2014;&#x2014;&#x60A8;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x548C;&#x6062;&#x590D;&#x54EA;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x624D;&#x80FD;&#x6B63;&#x786E;&#x6062;&#x590D;&#x4E2D;&#x65AD;&#x7684;&#x4EE3;&#x7801;&#xFF1F;(&#x63D0;&#x793A;&#xFF1A;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#xFF09;</p>
+</li>
+<li><p>&#x5F53;&#x8BA1;&#x65F6;&#x5668;&#x5173;&#x95ED;&#x65F6;&#xFF0C;&#x8BA9;<code>usertrap</code>&#x5728;<code>struct proc</code>&#x4E2D;&#x4FDD;&#x5B58;&#x8DB3;&#x591F;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4EE5;&#x4F7F;<code>sigreurn</code>&#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x8FD4;&#x56DE;&#x4E2D;&#x65AD;&#x7684;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x3002;</p>
+</li>
+<li><p>&#x9632;&#x6B62;&#x5BF9;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684;&#x91CD;&#x590D;&#x8C03;&#x7528;&#x2014;&#x2014;&#x5982;&#x679C;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x8FD8;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#xFF0C;&#x5185;&#x6838;&#x5C31;&#x4E0D;&#x5E94;&#x8BE5;&#x518D;&#x6B21;&#x8C03;&#x7528;&#x5B83;&#x3002;<code>test2</code>&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x3002;</p>
+</li>
+<li><p>&#x4E00;&#x65E6;&#x901A;&#x8FC7;<code>test0</code>&#x3001;<code>test1</code>&#x548C;<code>test2</code>&#xFF0C;&#x5C31;&#x8FD0;&#x884C;<code>usertests</code>&#x4EE5;&#x786E;&#x4FDD;&#x6CA1;&#x6709;&#x7834;&#x574F;&#x5185;&#x6838;&#x7684;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x3002;</p>
+</li>
+</ul>
+<h1 id="&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><a name="&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;</h1>
+<ul>
+<li>&#x5728;<code>backtrace()</code>&#x4E2D;&#x6253;&#x5370;&#x51FD;&#x6570;&#x7684;&#x540D;&#x79F0;&#x548C;&#x884C;&#x53F7;&#xFF0C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x6570;&#x5B57;&#x5316;&#x7684;&#x5730;&#x5740;&#x3002;(hard) </li>
+</ul>
+<footer class="page-footer"><span class="copyright">copyright by duguosheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-08-19 16:07:51
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lab3.html" class="navigation navigation-prev " aria-label="Previous page: Lab3: page tables">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lab5.html" class="navigation navigation-next " aria-label="Next page: Lab5: xv6 lazy page allocation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lab4: traps","level":"3.2.4","depth":2,"next":{"title":"Lab5: xv6 lazy page allocation","level":"3.2.5","depth":2,"path":"labs/requirements/lab5.md","ref":"labs/requirements/lab5.md","articles":[]},"previous":{"title":"Lab3: page tables","level":"3.2.3","depth":2,"path":"labs/requirements/lab3.md","ref":"labs/requirements/lab3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","github","chapter-fold","code-optimize","splitter","pageview-count","donate","tbfed-pagefooter","flexible-alerts","ancre-navigation","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/duguosheng"},"splitter":{},"search-pro":{},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/book.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"flat","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":false}},"theme":"default","author":"DuGuoSheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"6.S081 All-In-One","gitbook":"*"},"file":{"path":"labs/requirements/lab4.md","mtime":"2021-08-19T08:07:51.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-19T10:39:03.220Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code-optimize/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

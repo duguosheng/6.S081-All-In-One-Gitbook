@@ -1,0 +1,1792 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7.5 sleep与wakeup · 6.S081 All-In-One</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DuGuoSheng">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-code-optimize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="s6.html" />
+    
+    
+    <link rel="prev" href="s4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">概述</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    课程介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">文档翻译</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../summary.html">
+            
+                <a href="../summary.html">
+            
+                    
+                    book-riscv-rev1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../c1/s0.html">
+            
+                <a href="../c1/s0.html">
+            
+                    
+                    第一章 操作系统接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../c1/s1.html">
+            
+                <a href="../c1/s1.html">
+            
+                    
+                    1.1 进程和内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../c1/s2.html">
+            
+                <a href="../c1/s2.html">
+            
+                    
+                    1.2 I/O和文件描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../c1/s3.html">
+            
+                <a href="../c1/s3.html">
+            
+                    
+                    1.3 管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="../c1/s4.html">
+            
+                <a href="../c1/s4.html">
+            
+                    
+                    1.4 文件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="../c1/s5.html">
+            
+                <a href="../c1/s5.html">
+            
+                    
+                    1.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="../c1/s6.html">
+            
+                <a href="../c1/s6.html">
+            
+                    
+                    1.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../c2/s0.html">
+            
+                <a href="../c2/s0.html">
+            
+                    
+                    第二章 操作系统架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../c2/s1.html">
+            
+                <a href="../c2/s1.html">
+            
+                    
+                    2.1 抽象系统资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../c2/s2.html">
+            
+                <a href="../c2/s2.html">
+            
+                    
+                    2.2 用户态，核心态，以及系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../c2/s3.html">
+            
+                <a href="../c2/s3.html">
+            
+                    
+                    2.3 内核组织
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../c2/s4.html">
+            
+                <a href="../c2/s4.html">
+            
+                    
+                    2.4 代码：XV6架构篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../c2/s5.html">
+            
+                <a href="../c2/s5.html">
+            
+                    
+                    2.5 进程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.6" data-path="../c2/s6.html">
+            
+                <a href="../c2/s6.html">
+            
+                    
+                    2.6 代码：启动XV6和第一个进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.7" data-path="../c2/s7.html">
+            
+                <a href="../c2/s7.html">
+            
+                    
+                    2.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.8" data-path="../c2/s8.html">
+            
+                <a href="../c2/s8.html">
+            
+                    
+                    2.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../c3/s0.html">
+            
+                <a href="../c3/s0.html">
+            
+                    
+                    第三章 页表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../c3/s1.html">
+            
+                <a href="../c3/s1.html">
+            
+                    
+                    3.1 页式硬件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../c3/s2.html">
+            
+                <a href="../c3/s2.html">
+            
+                    
+                    3.2 内核地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../c3/s3.html">
+            
+                <a href="../c3/s3.html">
+            
+                    
+                    3.3 代码：创建一个地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../c3/s4.html">
+            
+                <a href="../c3/s4.html">
+            
+                    
+                    3.4 物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../c3/s5.html">
+            
+                <a href="../c3/s5.html">
+            
+                    
+                    3.5 代码：物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../c3/s6.html">
+            
+                <a href="../c3/s6.html">
+            
+                    
+                    3.6 进程地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../c3/s7.html">
+            
+                <a href="../c3/s7.html">
+            
+                    
+                    3.7 代码：sbrk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="../c3/s8.html">
+            
+                <a href="../c3/s8.html">
+            
+                    
+                    3.8 代码：exec
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="../c3/s9.html">
+            
+                <a href="../c3/s9.html">
+            
+                    
+                    3.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="../c3/s10.html">
+            
+                <a href="../c3/s10.html">
+            
+                    
+                    3.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../c4/s0.html">
+            
+                <a href="../c4/s0.html">
+            
+                    
+                    第四章 陷阱指令和系统调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../c4/s1.html">
+            
+                <a href="../c4/s1.html">
+            
+                    
+                    4.1 RISC-V陷入机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../c4/s2.html">
+            
+                <a href="../c4/s2.html">
+            
+                    
+                    4.2 从用户空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../c4/s3.html">
+            
+                <a href="../c4/s3.html">
+            
+                    
+                    4.3 代码：调用系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../c4/s4.html">
+            
+                <a href="../c4/s4.html">
+            
+                    
+                    4.4 系统调用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../c4/s5.html">
+            
+                <a href="../c4/s5.html">
+            
+                    
+                    4.5 从内核空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../c4/s6.html">
+            
+                <a href="../c4/s6.html">
+            
+                    
+                    4.6 页面错误异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.7" data-path="../c4/s7.html">
+            
+                <a href="../c4/s7.html">
+            
+                    
+                    4.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.8" data-path="../c4/s8.html">
+            
+                <a href="../c4/s8.html">
+            
+                    
+                    4.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../c5/s0.html">
+            
+                <a href="../c5/s0.html">
+            
+                    
+                    第五章 中断和设备驱动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="../c5/s1.html">
+            
+                <a href="../c5/s1.html">
+            
+                    
+                    5.1 代码：控制台输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="../c5/s2.html">
+            
+                <a href="../c5/s2.html">
+            
+                    
+                    5.2 代码：控制台输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="../c5/s3.html">
+            
+                <a href="../c5/s3.html">
+            
+                    
+                    5.3 驱动中的并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="../c5/s4.html">
+            
+                <a href="../c5/s4.html">
+            
+                    
+                    5.4 定时器中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.5" data-path="../c5/s5.html">
+            
+                <a href="../c5/s5.html">
+            
+                    
+                    5.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="../c5/s6.html">
+            
+                <a href="../c5/s6.html">
+            
+                    
+                    5.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../c6/s0.html">
+            
+                <a href="../c6/s0.html">
+            
+                    
+                    第六章 锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../c6/s1.html">
+            
+                <a href="../c6/s1.html">
+            
+                    
+                    6.1 竞态条件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../c6/s2.html">
+            
+                <a href="../c6/s2.html">
+            
+                    
+                    6.2 代码：Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../c6/s3.html">
+            
+                <a href="../c6/s3.html">
+            
+                    
+                    6.3 代码：使用锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../c6/s4.html">
+            
+                <a href="../c6/s4.html">
+            
+                    
+                    6.4  死锁和锁排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="../c6/s5.html">
+            
+                <a href="../c6/s5.html">
+            
+                    
+                    6.5 锁和中断处理函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="../c6/s6.html">
+            
+                <a href="../c6/s6.html">
+            
+                    
+                    6.6 指令和内存访问排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="../c6/s7.html">
+            
+                <a href="../c6/s7.html">
+            
+                    
+                    6.7 睡眠锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="../c6/s8.html">
+            
+                <a href="../c6/s8.html">
+            
+                    
+                    6.8 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="../c6/s9.html">
+            
+                <a href="../c6/s9.html">
+            
+                    
+                    6.9 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="s0.html">
+            
+                <a href="s0.html">
+            
+                    
+                    第七章  调度
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="s1.html">
+            
+                <a href="s1.html">
+            
+                    
+                    7.1 多路复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="s2.html">
+            
+                <a href="s2.html">
+            
+                    
+                    7.2 代码：上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="s3.html">
+            
+                <a href="s3.html">
+            
+                    
+                    7.3 代码：调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.4" data-path="s4.html">
+            
+                <a href="s4.html">
+            
+                    
+                    7.4 代码：mycpu和myproc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.7.5" data-path="s5.html">
+            
+                <a href="s5.html">
+            
+                    
+                    7.5 sleep与wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.6" data-path="s6.html">
+            
+                <a href="s6.html">
+            
+                    
+                    7.6 代码：sleep和wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.7" data-path="s7.html">
+            
+                <a href="s7.html">
+            
+                    
+                    7.7 代码：Pipes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.8" data-path="s8.html">
+            
+                <a href="s8.html">
+            
+                    
+                    7.8 代码：wait, exit和kill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.9" data-path="s9.html">
+            
+                <a href="s9.html">
+            
+                    
+                    7.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.10" data-path="s10.html">
+            
+                <a href="s10.html">
+            
+                    
+                    7.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../c8/s0.html">
+            
+                <a href="../c8/s0.html">
+            
+                    
+                    第八章 文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../c8/s1.html">
+            
+                <a href="../c8/s1.html">
+            
+                    
+                    8.1 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../c8/s2.html">
+            
+                <a href="../c8/s2.html">
+            
+                    
+                    8.2 Buffer cache层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../c8/s3.html">
+            
+                <a href="../c8/s3.html">
+            
+                    
+                    8.3 代码：Buffer cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../c8/s4.html">
+            
+                <a href="../c8/s4.html">
+            
+                    
+                    8.4 日志层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../c8/s5.html">
+            
+                <a href="../c8/s5.html">
+            
+                    
+                    8.5 日志设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.6" data-path="../c8/s6.html">
+            
+                <a href="../c8/s6.html">
+            
+                    
+                    8.6 代码：日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.7" data-path="../c8/s7.html">
+            
+                <a href="../c8/s7.html">
+            
+                    
+                    8.7 代码：块分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.8" data-path="../c8/s8.html">
+            
+                <a href="../c8/s8.html">
+            
+                    
+                    8.8 索引结点层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.9" data-path="../c8/s9.html">
+            
+                <a href="../c8/s9.html">
+            
+                    
+                    8.9 代码：Inodes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.10" data-path="../c8/s10.html">
+            
+                <a href="../c8/s10.html">
+            
+                    
+                    8.10 代码： Inode包含内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.11" data-path="../c8/s11.html">
+            
+                <a href="../c8/s11.html">
+            
+                    
+                    8.11 代码：目录层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.12" data-path="../c8/s12.html">
+            
+                <a href="../c8/s12.html">
+            
+                    
+                    8.12 代码：路径名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.13" data-path="../c8/s13.html">
+            
+                <a href="../c8/s13.html">
+            
+                    
+                    8.13 文件描述符层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.14" data-path="../c8/s14.html">
+            
+                <a href="../c8/s14.html">
+            
+                    
+                    8.14 代码：系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.15" data-path="../c8/s15.html">
+            
+                <a href="../c8/s15.html">
+            
+                    
+                    8.15 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.16" data-path="../c8/s16.html">
+            
+                <a href="../c8/s16.html">
+            
+                    
+                    8.16 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Introduction.html">
+            
+                <a href="../../Introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Use GUN Debugger.html">
+            
+                <a href="../../Use GUN Debugger.html">
+            
+                    
+                    使用GNU Debugger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../C Pointers, gdb.html">
+            
+                <a href="../../C Pointers, gdb.html">
+            
+                    
+                    C Pointers, gdb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../Calling Convention.html">
+            
+                <a href="../../Calling Convention.html">
+            
+                    
+                    Calling Convention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">实验记录</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../labs/use_git/git1.html">
+            
+                <a href="../../../labs/use_git/git1.html">
+            
+                    
+                    版本控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../../labs/requirements/summary.html">
+            
+                <a href="../../../labs/requirements/summary.html">
+            
+                    
+                    实验内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../../labs/requirements/lab1.html">
+            
+                <a href="../../../labs/requirements/lab1.html">
+            
+                    
+                    Lab1: Xv6 and Unix utilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../../labs/requirements/lab2.html">
+            
+                <a href="../../../labs/requirements/lab2.html">
+            
+                    
+                    Lab2: system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../../labs/requirements/lab3.html">
+            
+                <a href="../../../labs/requirements/lab3.html">
+            
+                    
+                    Lab3: page tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../../labs/requirements/lab4.html">
+            
+                <a href="../../../labs/requirements/lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../../labs/requirements/lab5.html">
+            
+                <a href="../../../labs/requirements/lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../../labs/requirements/lab6.html">
+            
+                <a href="../../../labs/requirements/lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../../../labs/requirements/lab7.html">
+            
+                <a href="../../../labs/requirements/lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../../../labs/requirements/lab8.html">
+            
+                <a href="../../../labs/requirements/lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="../../../labs/requirements/lab9.html">
+            
+                <a href="../../../labs/requirements/lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../../labs/answers/summary.html">
+            
+                <a href="../../../labs/answers/summary.html">
+            
+                    
+                    实验解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../../labs/answers/lab4.html">
+            
+                <a href="../../../labs/answers/lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../../labs/answers/lab5.html">
+            
+                <a href="../../../labs/answers/lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../../labs/answers/lab6.html">
+            
+                <a href="../../../labs/answers/lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../../../labs/answers/lab7.html">
+            
+                <a href="../../../labs/answers/lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../../../labs/answers/lab8.html">
+            
+                <a href="../../../labs/answers/lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../../../labs/answers/lab9.html">
+            
+                <a href="../../../labs/answers/lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >7.5 sleep与wakeup</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#75-sleep&#x4E0E;wakeup"><b></b>7.5 sleep&#x4E0E;wakeup</a></li></ul></div><a href="#75-sleep&#x4E0E;wakeup" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="75-sleep&#x4E0E;wakeup"><a name="75-sleep&#x4E0E;wakeup" class="anchor-navigation-ex-anchor" href="#75-sleep&#x4E0E;wakeup"><i class="fa fa-link" aria-hidden="true"></i></a>7.5 sleep&#x4E0E;wakeup</h1>
+<p>&#x8C03;&#x5EA6;&#x548C;&#x9501;&#x6709;&#x52A9;&#x4E8E;&#x9690;&#x85CF;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5BF9;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x6CA1;&#x6709;&#x5E2E;&#x52A9;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x6709;&#x610F;&#x4EA4;&#x4E92;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5DF2;&#x7ECF;&#x53D1;&#x660E;&#x4E86;&#x8BB8;&#x591A;&#x673A;&#x5236;&#x3002;Xv6&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x79F0;&#x4E3A;<code>sleep</code>&#x548C;<code>wakeup</code>&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;&#x65F6;&#x4F11;&#x7720;&#xFF0C;&#x800C;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5728;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#x5C06;&#x5176;&#x5524;&#x9192;&#x3002;&#x7761;&#x7720;&#x548C;&#x5524;&#x9192;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A;&#x5E8F;&#x5217;&#x534F;&#x8C03;&#xFF08;sequence coordination&#xFF09;&#x6216;&#x6761;&#x4EF6;&#x540C;&#x6B65;&#x673A;&#x5236;&#xFF08;conditional synchronization mechanisms&#xFF09;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x8BF4;&#x660E;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x79F0;&#x4E3A;&#x4FE1;&#x53F7;&#x91CF;&#xFF08;semaphore&#xFF09;&#x7684;&#x540C;&#x6B65;&#x673A;&#x5236;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x534F;&#x8C03;&#x751F;&#x4EA7;&#x8005;&#x548C;&#x6D88;&#x8D39;&#x8005;&#x3002;&#x4FE1;&#x53F7;&#x91CF;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5E76;&#x63D0;&#x4F9B;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x201C;V&#x201D;&#x64CD;&#x4F5C;&#xFF08;&#x5BF9;&#x4E8E;&#x751F;&#x4EA7;&#x8005;&#xFF09;&#x589E;&#x52A0;&#x8BA1;&#x6570;&#x3002;&#x201C;P&#x201D;&#x64CD;&#x4F5C;&#xFF08;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528;&#x8005;&#xFF09;&#x7B49;&#x5F85;&#x8BA1;&#x6570;&#x4E3A;&#x975E;&#x96F6;&#xFF0C;&#x7136;&#x540E;&#x9012;&#x51CF;&#x5E76;&#x8FD4;&#x56DE;&#x3002;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x751F;&#x4EA7;&#x8005;&#x7EBF;&#x7A0B;&#x548C;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x7EBF;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x5728;&#x4E0D;&#x540C;&#x7684;CPU&#x4E0A;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x7F16;&#x8BD1;&#x5668;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x8FC7;&#x79EF;&#x6781;&#x7684;&#x4F18;&#x5316;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x5B9E;&#x73B0;&#x5C06;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> semaphore {
+    <span class="hljs-keyword">struct</span> spinlock lock;
+    <span class="hljs-keyword">int</span> count;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">V</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count += <span class="hljs-number">1</span>;
+    release(&amp;s-&gt;lock);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">P</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    <span class="hljs-keyword">while</span> (s-&gt;count == <span class="hljs-number">0</span>)
+        ;
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count -= <span class="hljs-number">1</span>;
+    release(&amp;s-&gt;lock);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x4EF7;&#x6602;&#x8D35;&#x3002;&#x5982;&#x679C;&#x751F;&#x4EA7;&#x8005;&#x5F88;&#x5C11;&#x91C7;&#x53D6;&#x884C;&#x52A8;&#xFF0C;&#x6D88;&#x8D39;&#x8005;&#x5C06;&#x628A;&#x5927;&#x90E8;&#x5206;&#x65F6;&#x95F4;&#x82B1;&#x5728;<code>while</code>&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;&#x5E0C;&#x671B;&#x5F97;&#x5230;&#x975E;&#x96F6;&#x8BA1;&#x6570;&#x3002;&#x6D88;&#x8D39;&#x8005;&#x7684;CPU&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6BD4;&#x901A;&#x8FC7;&#x53CD;&#x590D;&#x8F6E;&#x8BE2;<code>s-&gt;count</code>&#x7E41;&#x5FD9;&#x7B49;&#x5F85;&#x66F4;&#x6709;&#x6210;&#x6548;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x8981;&#x907F;&#x514D;&#x7E41;&#x5FD9;&#x7B49;&#x5F85;&#xFF0C;&#x6D88;&#x8D39;&#x8005;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x91CA;&#x653E;CPU&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5728;<code>V</code>&#x589E;&#x52A0;&#x8BA1;&#x6570;&#x540E;&#x624D;&#x80FD;&#x6062;&#x590D;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x671D;&#x7740;&#x8FD9;&#x4E2A;&#x65B9;&#x5411;&#x8FC8;&#x51FA;&#x7684;&#x4E00;&#x6B65;&#xFF0C;&#x5C3D;&#x7BA1;&#x6211;&#x4EEC;&#x5C06;&#x770B;&#x5230;&#x8FD9;&#x662F;&#x4E0D;&#x591F;&#x7684;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x60F3;&#x8C61;&#x4E00;&#x5BF9;&#x8C03;&#x7528;&#xFF0C;<code>sleep</code>&#x548C;<code>wakeup</code>&#xFF0C;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#x3002;<code>Sleep(chan)</code>&#x5728;&#x4EFB;&#x610F;&#x503C;<code>chan</code>&#x4E0A;&#x7761;&#x7720;&#xFF0C;&#x79F0;&#x4E3A;&#x7B49;&#x5F85;&#x901A;&#x9053;&#xFF08;wait channel&#xFF09;&#x3002;<code>Sleep</code>&#x5C06;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x7F6E;&#x4E8E;&#x7761;&#x7720;&#x72B6;&#x6001;&#xFF0C;&#x91CA;&#x653E;CPU&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x3002;<code>Wakeup(chan)</code>&#x5524;&#x9192;&#x6240;&#x6709;&#x5728;<code>chan</code>&#x4E0A;&#x7761;&#x7720;&#x7684;&#x8FDB;&#x7A0B;&#xFF08;&#x5982;&#x679C;&#x6709;&#xFF09;&#xFF0C;&#x4F7F;&#x5176;<code>sleep</code>&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FDB;&#x7A0B;&#x5728;<code>chan</code>&#x4E0A;&#x7B49;&#x5F85;&#xFF0C;&#x5219;<code>wakeup</code>&#x4E0D;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x4FE1;&#x53F7;&#x91CF;&#x5B9E;&#x73B0;&#x66F4;&#x6539;&#x4E3A;&#x4F7F;&#x7528;<code>sleep</code>&#x548C;<code>wakeup</code>&#xFF08;&#x66F4;&#x6539;&#x7684;&#x884C;&#x6DFB;&#x52A0;&#x4E86;&#x6CE8;&#x91CA;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">V</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count += <span class="hljs-number">1</span>;
+    wakeup(s);  <span class="hljs-comment">// !pay attention</span>
+    release(&amp;s-&gt;lock);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">P</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    <span class="hljs-keyword">while</span> (s-&gt;count == <span class="hljs-number">0</span>)
+        sleep(s);  <span class="hljs-comment">// !pay attention</span>
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count -= <span class="hljs-number">1</span>;
+    release(&amp;s-&gt;lock);
+}
+</code></pre>
+<p><code>P</code>&#x73B0;&#x5728;&#x653E;&#x5F03;CPU&#x800C;&#x4E0D;&#x662F;&#x81EA;&#x65CB;&#xFF0C;&#x8FD9;&#x5F88;&#x597D;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x4E8B;&#x5B9E;&#x8BC1;&#x660E;&#xFF0C;&#x4F7F;&#x7528;&#x6B64;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;<code>sleep</code>&#x548C;<code>wakeup</code>&#x800C;&#x4E0D;&#x906D;&#x53D7;&#x6240;&#x8C13;&#x7684;&#x4E22;&#x5931;&#x5524;&#x9192;&#xFF08;lost wake-up&#xFF09;&#x95EE;&#x9898;&#x5E76;&#x975E;&#x6613;&#x4E8B;&#x3002;&#x5047;&#x8BBE;<code>P</code>&#x5728;&#x7B2C;9&#x884C;&#x53D1;&#x73B0;<code>s-&gt;count==0</code>&#x3002;&#x5F53;<code>P</code>&#x5728;&#x7B2C;9&#x884C;&#x548C;&#x7B2C;10&#x884C;&#x4E4B;&#x95F4;&#x65F6;&#xFF0C;<code>V</code>&#x5728;&#x53E6;&#x4E00;&#x4E2A;CPU&#x4E0A;&#x8FD0;&#x884C;&#xFF1A;&#x5B83;&#x5C06;<code>s-&gt;count</code>&#x66F4;&#x6539;&#x4E3A;&#x975E;&#x96F6;&#xFF0C;&#x5E76;&#x8C03;&#x7528;<code>wakeup</code>&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x4F1A;&#x53D1;&#x73B0;&#x8FDB;&#x7A0B;&#x5904;&#x4E8E;&#x4F11;&#x7720;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x3002;&#x73B0;&#x5728;P&#x7EE7;&#x7EED;&#x5728;&#x7B2C;10&#x884C;&#x6267;&#x884C;&#xFF1A;&#x5B83;&#x8C03;&#x7528;<code>sleep</code>&#x5E76;&#x8FDB;&#x5165;&#x7761;&#x7720;&#x3002;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;<code>P</code>&#x6B63;&#x5728;&#x4F11;&#x7720;&#xFF0C;&#x7B49;&#x5F85;&#x8C03;&#x7528;<code>V</code>&#xFF0C;&#x800C;<code>V</code>&#x5DF2;&#x7ECF;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x9664;&#x975E;&#x6211;&#x4EEC;&#x8FD0;&#x6C14;&#x597D;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x518D;&#x6B21;&#x547C;&#x53EB;<code>V</code>&#xFF0C;&#x5426;&#x5219;&#x6D88;&#x8D39;&#x8005;&#x5C06;&#x6C38;&#x8FDC;&#x7B49;&#x5F85;&#xFF0C;&#x5373;&#x4F7F;<code>count</code>&#x4E3A;&#x975E;&#x96F6;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x6839;&#x6E90;&#x662F;<code>V</code>&#x5728;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x523B;&#x8FD0;&#x884C;&#xFF0C;&#x8FDD;&#x53CD;&#x4E86;<code>P</code>&#x4EC5;&#x5728;<code>s-&gt;count==0</code>&#x65F6;&#x624D;&#x4F11;&#x7720;&#x7684;&#x4E0D;&#x53D8;&#x91CF;&#x3002;&#x4FDD;&#x62A4;&#x4E0D;&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x79CD;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5C06;&#x9501;&#x7684;&#x83B7;&#x53D6;&#xFF08;&#x4E0B;&#x9762;&#x4EE5;&#x9EC4;&#x8272;&#x7A81;&#x51FA;&#x663E;&#x793A;&#xFF09;&#x79FB;&#x52A8;&#x5230;<code>P</code>&#x4E2D;&#xFF0C;&#x4EE5;&#x4FBF;&#x5176;&#x68C0;&#x67E5;<code>count</code>&#x548C;&#x8C03;&#x7528;<code>sleep</code>&#x662F;&#x539F;&#x5B50;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">V</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count += <span class="hljs-number">1</span>;
+    wakeup(s);
+    release(&amp;s-&gt;lock);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">P</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);  <span class="hljs-comment">// !pay attention</span>
+    <span class="hljs-keyword">while</span> (s-&gt;count == <span class="hljs-number">0</span>)
+        sleep(s);
+    s-&gt;count -= <span class="hljs-number">1</span>;
+    release(&amp;s-&gt;lock);
+}
+</code></pre>
+<p>&#x4EBA;&#x4EEC;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x7684;<code>P</code>&#x80FD;&#x591F;&#x907F;&#x514D;&#x4E22;&#x5931;&#x5524;&#x9192;&#xFF0C;&#x56E0;&#x4E3A;&#x9501;&#x963B;&#x6B62;<code>V</code>&#x5728;&#x7B2C;10&#x884C;&#x548C;&#x7B2C;11&#x884C;&#x4E4B;&#x95F4;&#x6267;&#x884C;&#x3002;&#x5B83;&#x786E;&#x5B9E;&#x8FD9;&#x6837;&#x505A;&#x4E86;&#xFF0C;&#x4F46;&#x5B83;&#x4F1A;&#x5BFC;&#x81F4;&#x6B7B;&#x9501;&#xFF1A;<code>P</code>&#x5728;&#x7761;&#x7720;&#x65F6;&#x6301;&#x6709;&#x9501;&#xFF0C;&#x56E0;&#x6B64;<code>V</code>&#x5C06;&#x6C38;&#x8FDC;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x9501;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x901A;&#x8FC7;&#x66F4;&#x6539;<code>sleep</code>&#x7684;&#x63A5;&#x53E3;&#x6765;&#x4FEE;&#x590D;&#x524D;&#x9762;&#x7684;&#x65B9;&#x6848;&#xFF1A;&#x8C03;&#x7528;&#x65B9;&#x5FC5;&#x987B;&#x5C06;&#x6761;&#x4EF6;&#x9501;&#xFF08;condition lock&#xFF09;&#x4F20;&#x9012;&#x7ED9;sleep&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;asleep&#x5E76;&#x5728;&#x7761;&#x7720;&#x901A;&#x9053;&#x4E0A;&#x7B49;&#x5F85;&#x540E;<code>sleep</code>&#x53EF;&#x4EE5;&#x91CA;&#x653E;&#x9501;&#x3002;&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x5E76;&#x53D1;&#x7684;<code>V</code>&#x64CD;&#x4F5C;&#xFF0C;&#x9501;&#x5C06;&#x5F3A;&#x5236;&#x5B83;&#x5728;<code>P</code>&#x5C06;&#x81EA;&#x5DF1;&#x7F6E;&#x4E8E;&#x7761;&#x7720;&#x72B6;&#x6001;&#x524D;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#xFF0C;&#x56E0;&#x6B64;<code>wakeup</code>&#x5C06;&#x627E;&#x5230;&#x7761;&#x7720;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x5E76;&#x5C06;&#x5176;&#x5524;&#x9192;&#x3002;&#x4E00;&#x65E6;&#x6D88;&#x8D39;&#x8005;&#x518D;&#x6B21;&#x9192;&#x6765;&#xFF0C;<code>sleep</code>&#x4F1A;&#x5728;&#x8FD4;&#x56DE;&#x524D;&#x91CD;&#x65B0;&#x83B7;&#x5F97;&#x9501;&#x3002;&#x6211;&#x4EEC;&#x65B0;&#x7684;&#x6B63;&#x786E;&#x7684;<code>sleep/wakeup</code>&#x65B9;&#x6848;&#x53EF;&#x7528;&#x5982;&#x4E0B;&#xFF08;&#x66F4;&#x6539;&#x4EE5;&#x9EC4;&#x8272;&#x7A81;&#x51FA;&#x663E;&#x793A;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">V</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);
+    s-&gt;count += <span class="hljs-number">1</span>;
+    wakeup(s);
+    release(&amp;s-&gt;lock);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">P</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore* s)</span> </span>{
+    acquire(&amp;s-&gt;lock);
+
+    <span class="hljs-keyword">while</span> (s-&gt;count == <span class="hljs-number">0</span>)
+        sleep(s, &amp;s-&gt;lock);  <span class="hljs-comment">// !pay attention</span>
+    s-&gt;count -= <span class="hljs-number">1</span>;
+    release(&amp;s-&gt;lock);
+}
+</code></pre>
+<p><code>P</code>&#x6301;&#x6709;<code>s-&gt;lock</code>&#x7684;&#x4E8B;&#x5B9E;&#x963B;&#x6B62;<code>V</code>&#x5728;<code>P</code>&#x68C0;&#x67E5;<code>s-&gt;count</code>&#x548C;&#x8C03;&#x7528;<code>sleep</code>&#x4E4B;&#x95F4;&#x8BD5;&#x56FE;&#x5524;&#x9192;&#x5B83;&#x3002;&#x7136;&#x800C;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;<code>sleep</code>&#x91CA;&#x653E;<code>s-&gt;lock</code>&#x5E76;&#x4F7F;&#x6D88;&#x8D39;&#x8005;&#x8FDB;&#x7A0B;&#x8FDB;&#x5165;&#x7761;&#x7720;&#x72B6;&#x6001;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x539F;&#x5B50;&#x7684;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">copyright by duguosheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-08-19 14:05:07
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="s4.html" class="navigation navigation-prev " aria-label="Previous page: 7.4 代码：mycpu和myproc">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="s6.html" class="navigation navigation-next " aria-label="Next page: 7.6 代码：sleep和wakeup">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7.5 sleep与wakeup","level":"2.1.7.5","depth":3,"next":{"title":"7.6 代码：sleep和wakeup","level":"2.1.7.6","depth":3,"path":"tranlate_books/book-riscv-rev1/c7/s6.md","ref":"tranlate_books/book-riscv-rev1/c7/s6.md","articles":[]},"previous":{"title":"7.4 代码：mycpu和myproc","level":"2.1.7.4","depth":3,"path":"tranlate_books/book-riscv-rev1/c7/s4.md","ref":"tranlate_books/book-riscv-rev1/c7/s4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","github","chapter-fold","code-optimize","splitter","pageview-count","donate","tbfed-pagefooter","flexible-alerts","ancre-navigation","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/duguosheng"},"splitter":{},"search-pro":{},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/book.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"flat","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":false}},"theme":"default","author":"DuGuoSheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"6.S081 All-In-One","gitbook":"*"},"file":{"path":"tranlate_books/book-riscv-rev1/c7/s5.md","mtime":"2021-08-19T06:05:07.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-19T10:39:03.220Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-code-optimize/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

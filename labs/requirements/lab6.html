@@ -1,0 +1,1778 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lab6: Copy-on-Write Fork for xv6 · 6.S081 All-In-One</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DuGuoSheng">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code-optimize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lab7.html" />
+    
+    
+    <link rel="prev" href="lab5.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">概述</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    课程介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">文档翻译</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../tranlate_books/book-riscv-rev1/summary.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/summary.html">
+            
+                    
+                    book-riscv-rev1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../tranlate_books/book-riscv-rev1/c1/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s0.html">
+            
+                    
+                    第一章 操作系统接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../tranlate_books/book-riscv-rev1/c1/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s1.html">
+            
+                    
+                    1.1 进程和内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../tranlate_books/book-riscv-rev1/c1/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s2.html">
+            
+                    
+                    1.2 I/O和文件描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../../tranlate_books/book-riscv-rev1/c1/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s3.html">
+            
+                    
+                    1.3 管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="../../tranlate_books/book-riscv-rev1/c1/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s4.html">
+            
+                    
+                    1.4 文件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="../../tranlate_books/book-riscv-rev1/c1/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s5.html">
+            
+                    
+                    1.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="../../tranlate_books/book-riscv-rev1/c1/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c1/s6.html">
+            
+                    
+                    1.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../tranlate_books/book-riscv-rev1/c2/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s0.html">
+            
+                    
+                    第二章 操作系统架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../tranlate_books/book-riscv-rev1/c2/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s1.html">
+            
+                    
+                    2.1 抽象系统资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../tranlate_books/book-riscv-rev1/c2/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s2.html">
+            
+                    
+                    2.2 用户态，核心态，以及系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../tranlate_books/book-riscv-rev1/c2/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s3.html">
+            
+                    
+                    2.3 内核组织
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../tranlate_books/book-riscv-rev1/c2/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s4.html">
+            
+                    
+                    2.4 代码：XV6架构篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../tranlate_books/book-riscv-rev1/c2/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s5.html">
+            
+                    
+                    2.5 进程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.6" data-path="../../tranlate_books/book-riscv-rev1/c2/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s6.html">
+            
+                    
+                    2.6 代码：启动XV6和第一个进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.7" data-path="../../tranlate_books/book-riscv-rev1/c2/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s7.html">
+            
+                    
+                    2.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.8" data-path="../../tranlate_books/book-riscv-rev1/c2/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c2/s8.html">
+            
+                    
+                    2.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../tranlate_books/book-riscv-rev1/c3/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s0.html">
+            
+                    
+                    第三章 页表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../tranlate_books/book-riscv-rev1/c3/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s1.html">
+            
+                    
+                    3.1 页式硬件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../tranlate_books/book-riscv-rev1/c3/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s2.html">
+            
+                    
+                    3.2 内核地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../tranlate_books/book-riscv-rev1/c3/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s3.html">
+            
+                    
+                    3.3 代码：创建一个地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../tranlate_books/book-riscv-rev1/c3/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s4.html">
+            
+                    
+                    3.4 物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../../tranlate_books/book-riscv-rev1/c3/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s5.html">
+            
+                    
+                    3.5 代码：物理内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../../tranlate_books/book-riscv-rev1/c3/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s6.html">
+            
+                    
+                    3.6 进程地址空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../../tranlate_books/book-riscv-rev1/c3/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s7.html">
+            
+                    
+                    3.7 代码：sbrk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="../../tranlate_books/book-riscv-rev1/c3/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s8.html">
+            
+                    
+                    3.8 代码：exec
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="../../tranlate_books/book-riscv-rev1/c3/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s9.html">
+            
+                    
+                    3.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="../../tranlate_books/book-riscv-rev1/c3/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c3/s10.html">
+            
+                    
+                    3.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../tranlate_books/book-riscv-rev1/c4/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s0.html">
+            
+                    
+                    第四章 陷阱指令和系统调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../../tranlate_books/book-riscv-rev1/c4/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s1.html">
+            
+                    
+                    4.1 RISC-V陷入机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../../tranlate_books/book-riscv-rev1/c4/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s2.html">
+            
+                    
+                    4.2 从用户空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../../tranlate_books/book-riscv-rev1/c4/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s3.html">
+            
+                    
+                    4.3 代码：调用系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../../tranlate_books/book-riscv-rev1/c4/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s4.html">
+            
+                    
+                    4.4 系统调用参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../../tranlate_books/book-riscv-rev1/c4/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s5.html">
+            
+                    
+                    4.5 从内核空间陷入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../../tranlate_books/book-riscv-rev1/c4/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s6.html">
+            
+                    
+                    4.6 页面错误异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.7" data-path="../../tranlate_books/book-riscv-rev1/c4/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s7.html">
+            
+                    
+                    4.7 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.8" data-path="../../tranlate_books/book-riscv-rev1/c4/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c4/s8.html">
+            
+                    
+                    4.8 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../tranlate_books/book-riscv-rev1/c5/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s0.html">
+            
+                    
+                    第五章 中断和设备驱动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="../../tranlate_books/book-riscv-rev1/c5/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s1.html">
+            
+                    
+                    5.1 代码：控制台输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="../../tranlate_books/book-riscv-rev1/c5/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s2.html">
+            
+                    
+                    5.2 代码：控制台输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="../../tranlate_books/book-riscv-rev1/c5/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s3.html">
+            
+                    
+                    5.3 驱动中的并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="../../tranlate_books/book-riscv-rev1/c5/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s4.html">
+            
+                    
+                    5.4 定时器中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.5" data-path="../../tranlate_books/book-riscv-rev1/c5/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s5.html">
+            
+                    
+                    5.5 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="../../tranlate_books/book-riscv-rev1/c5/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c5/s6.html">
+            
+                    
+                    5.6 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../tranlate_books/book-riscv-rev1/c6/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s0.html">
+            
+                    
+                    第六章 锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../../tranlate_books/book-riscv-rev1/c6/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s1.html">
+            
+                    
+                    6.1 竞态条件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../../tranlate_books/book-riscv-rev1/c6/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s2.html">
+            
+                    
+                    6.2 代码：Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../../tranlate_books/book-riscv-rev1/c6/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s3.html">
+            
+                    
+                    6.3 代码：使用锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../../tranlate_books/book-riscv-rev1/c6/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s4.html">
+            
+                    
+                    6.4  死锁和锁排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="../../tranlate_books/book-riscv-rev1/c6/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s5.html">
+            
+                    
+                    6.5 锁和中断处理函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="../../tranlate_books/book-riscv-rev1/c6/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s6.html">
+            
+                    
+                    6.6 指令和内存访问排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="../../tranlate_books/book-riscv-rev1/c6/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s7.html">
+            
+                    
+                    6.7 睡眠锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="../../tranlate_books/book-riscv-rev1/c6/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s8.html">
+            
+                    
+                    6.8 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="../../tranlate_books/book-riscv-rev1/c6/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c6/s9.html">
+            
+                    
+                    6.9 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../tranlate_books/book-riscv-rev1/c7/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s0.html">
+            
+                    
+                    第七章  调度
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../../tranlate_books/book-riscv-rev1/c7/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s1.html">
+            
+                    
+                    7.1 多路复用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../../tranlate_books/book-riscv-rev1/c7/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s2.html">
+            
+                    
+                    7.2 代码：上下文切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../../tranlate_books/book-riscv-rev1/c7/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s3.html">
+            
+                    
+                    7.3 代码：调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.4" data-path="../../tranlate_books/book-riscv-rev1/c7/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s4.html">
+            
+                    
+                    7.4 代码：mycpu和myproc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.5" data-path="../../tranlate_books/book-riscv-rev1/c7/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s5.html">
+            
+                    
+                    7.5 sleep与wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.6" data-path="../../tranlate_books/book-riscv-rev1/c7/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s6.html">
+            
+                    
+                    7.6 代码：sleep和wakeup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.7" data-path="../../tranlate_books/book-riscv-rev1/c7/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s7.html">
+            
+                    
+                    7.7 代码：Pipes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.8" data-path="../../tranlate_books/book-riscv-rev1/c7/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s8.html">
+            
+                    
+                    7.8 代码：wait, exit和kill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.9" data-path="../../tranlate_books/book-riscv-rev1/c7/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s9.html">
+            
+                    
+                    7.9 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.10" data-path="../../tranlate_books/book-riscv-rev1/c7/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c7/s10.html">
+            
+                    
+                    7.10 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../tranlate_books/book-riscv-rev1/c8/s0.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s0.html">
+            
+                    
+                    第八章 文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../../tranlate_books/book-riscv-rev1/c8/s1.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s1.html">
+            
+                    
+                    8.1 概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../../tranlate_books/book-riscv-rev1/c8/s2.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s2.html">
+            
+                    
+                    8.2 Buffer cache层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../../tranlate_books/book-riscv-rev1/c8/s3.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s3.html">
+            
+                    
+                    8.3 代码：Buffer cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../../tranlate_books/book-riscv-rev1/c8/s4.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s4.html">
+            
+                    
+                    8.4 日志层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../../tranlate_books/book-riscv-rev1/c8/s5.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s5.html">
+            
+                    
+                    8.5 日志设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.6" data-path="../../tranlate_books/book-riscv-rev1/c8/s6.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s6.html">
+            
+                    
+                    8.6 代码：日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.7" data-path="../../tranlate_books/book-riscv-rev1/c8/s7.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s7.html">
+            
+                    
+                    8.7 代码：块分配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.8" data-path="../../tranlate_books/book-riscv-rev1/c8/s8.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s8.html">
+            
+                    
+                    8.8 索引结点层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.9" data-path="../../tranlate_books/book-riscv-rev1/c8/s9.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s9.html">
+            
+                    
+                    8.9 代码：Inodes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.10" data-path="../../tranlate_books/book-riscv-rev1/c8/s10.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s10.html">
+            
+                    
+                    8.10 代码： Inode包含内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.11" data-path="../../tranlate_books/book-riscv-rev1/c8/s11.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s11.html">
+            
+                    
+                    8.11 代码：目录层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.12" data-path="../../tranlate_books/book-riscv-rev1/c8/s12.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s12.html">
+            
+                    
+                    8.12 代码：路径名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.13" data-path="../../tranlate_books/book-riscv-rev1/c8/s13.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s13.html">
+            
+                    
+                    8.13 文件描述符层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.14" data-path="../../tranlate_books/book-riscv-rev1/c8/s14.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s14.html">
+            
+                    
+                    8.14 代码：系统调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.15" data-path="../../tranlate_books/book-riscv-rev1/c8/s15.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s15.html">
+            
+                    
+                    8.15 真实世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.16" data-path="../../tranlate_books/book-riscv-rev1/c8/s16.html">
+            
+                <a href="../../tranlate_books/book-riscv-rev1/c8/s16.html">
+            
+                    
+                    8.16 练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../tranlate_books/Introduction.html">
+            
+                <a href="../../tranlate_books/Introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../tranlate_books/Use GUN Debugger.html">
+            
+                <a href="../../tranlate_books/Use GUN Debugger.html">
+            
+                    
+                    使用GNU Debugger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../tranlate_books/C Pointers, gdb.html">
+            
+                <a href="../../tranlate_books/C Pointers, gdb.html">
+            
+                    
+                    C Pointers, gdb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../tranlate_books/Calling Convention.html">
+            
+                <a href="../../tranlate_books/Calling Convention.html">
+            
+                    
+                    Calling Convention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">实验记录</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../use_git/git1.html">
+            
+                <a href="../use_git/git1.html">
+            
+                    
+                    版本控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    实验内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="lab1.html">
+            
+                <a href="lab1.html">
+            
+                    
+                    Lab1: Xv6 and Unix utilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="lab2.html">
+            
+                <a href="lab2.html">
+            
+                    
+                    Lab2: system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="lab3.html">
+            
+                <a href="lab3.html">
+            
+                    
+                    Lab3: page tables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="lab4.html">
+            
+                <a href="lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="lab5.html">
+            
+                <a href="lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2.6" data-path="lab6.html">
+            
+                <a href="lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="lab7.html">
+            
+                <a href="lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="lab8.html">
+            
+                <a href="lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="lab9.html">
+            
+                <a href="lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../answers/summary.html">
+            
+                <a href="../answers/summary.html">
+            
+                    
+                    实验解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../answers/lab4.html">
+            
+                <a href="../answers/lab4.html">
+            
+                    
+                    Lab4: traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../answers/lab5.html">
+            
+                <a href="../answers/lab5.html">
+            
+                    
+                    Lab5: xv6 lazy page allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../answers/lab6.html">
+            
+                <a href="../answers/lab6.html">
+            
+                    
+                    Lab6: Copy-on-Write Fork for xv6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../answers/lab7.html">
+            
+                <a href="../answers/lab7.html">
+            
+                    
+                    Lab7: Multithreading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../answers/lab8.html">
+            
+                <a href="../answers/lab8.html">
+            
+                    
+                    Lab8: locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../answers/lab9.html">
+            
+                <a href="../answers/lab9.html">
+            
+                    
+                    Lab9: file system
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lab6: Copy-on-Write Fork for xv6</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#lab6-copy-on-write-fork-for-xv6"><b></b>Lab6: Copy-on-Write Fork for xv6</a></li><ul><li><span class="title-icon "></span><a href="#&#x95EE;&#x9898;"><b></b>&#x95EE;&#x9898;</a></li><li><span class="title-icon "></span><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;"><b></b>&#x89E3;&#x51B3;&#x65B9;&#x6848;</a></li></ul><li><span class="title-icon "></span><a href="#implement-copy-on-write-hard"><b></b>Implement copy-on write (hard)</a></li><li><span class="title-icon "></span><a href="#&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><b></b>&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;</a></li></ul></div><a href="#lab6-copy-on-write-fork-for-xv6" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lab6-copy-on-write-fork-for-xv6"><a name="lab6-copy-on-write-fork-for-xv6" class="anchor-navigation-ex-anchor" href="#lab6-copy-on-write-fork-for-xv6"><i class="fa fa-link" aria-hidden="true"></i></a>Lab6: Copy-on-Write Fork for xv6</h1>
+<p>&#x865A;&#x62DF;&#x5185;&#x5B58;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x7684;&#x95F4;&#x63A5;&#x5BFB;&#x5740;&#xFF1A;&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;PTE&#x6807;&#x8BB0;&#x4E3A;&#x65E0;&#x6548;&#x6216;&#x53EA;&#x8BFB;&#x6765;&#x62E6;&#x622A;&#x5185;&#x5B58;&#x5F15;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x9875;&#x9762;&#x9519;&#x8BEF;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;PTE&#x6765;&#x66F4;&#x6539;&#x5730;&#x5740;&#x7684;&#x542B;&#x4E49;&#x3002;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x4E00;&#x79CD;&#x8BF4;&#x6CD5;&#xFF0C;&#x4EFB;&#x4F55;&#x7CFB;&#x7EDF;&#x95EE;&#x9898;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x6765;&#x89E3;&#x51B3;&#x3002;Lazy allocation&#x5B9E;&#x9A8C;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x63A2;&#x7D22;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;&#x5199;&#x65F6;&#x590D;&#x5236;&#x5206;&#x652F;&#xFF08;copy-on write fork&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x5F00;&#x59CB;&#x672C;&#x5B9E;&#x9A8C;&#x524D;&#xFF0C;&#x5C06;&#x4ED3;&#x5E93;&#x5207;&#x6362;&#x5230;cow&#x5206;&#x652F;</p>
+<pre><code class="lang-bash">$ git fetch
+$ git checkout cow
+$ make clean
+</code></pre>
+<h2 id="&#x95EE;&#x9898;"><a name="&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x95EE;&#x9898;</h2>
+<p>xv6&#x4E2D;&#x7684;<code>fork()</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5C06;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x6240;&#x6709;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x5185;&#x5B58;&#x590D;&#x5236;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x7236;&#x8FDB;&#x7A0B;&#x8F83;&#x5927;&#xFF0C;&#x5219;&#x590D;&#x5236;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x3002;&#x66F4;&#x7CDF;&#x7CD5;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#x7ECF;&#x5E38;&#x9020;&#x6210;&#x5927;&#x91CF;&#x6D6A;&#x8D39;&#xFF1B;&#x4F8B;&#x5982;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;<code>fork()</code>&#x540E;&#x8DDF;<code>exec()</code>&#x5C06;&#x5BFC;&#x81F4;&#x5B50;&#x8FDB;&#x7A0B;&#x4E22;&#x5F03;&#x590D;&#x5236;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x5176;&#x4E2D;&#x7684;&#x5927;&#x90E8;&#x5206;&#x53EF;&#x80FD;&#x90FD;&#x4ECE;&#x672A;&#x4F7F;&#x7528;&#x8FC7;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x90FD;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6216;&#x4E24;&#x4E2A;&#x5BF9;&#x8BE5;&#x9875;&#x9762;&#x6709;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x590D;&#x5236;&#x3002;</p>
+<h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a name="&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2>
+<p>copy-on-write (COW) fork()&#x7684;&#x76EE;&#x6807;&#x662F;&#x63A8;&#x8FDF;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x5B9E;&#x9645;&#x9700;&#x8981;&#x7269;&#x7406;&#x5185;&#x5B58;&#x62F7;&#x8D1D;&#x65F6;&#x518D;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x548C;&#x590D;&#x5236;&#x7269;&#x7406;&#x5185;&#x5B58;&#x9875;&#x9762;&#x3002;</p>
+<p>COW fork()&#x53EA;&#x4E3A;&#x5B50;&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9875;&#x8868;&#xFF0C;&#x7528;&#x6237;&#x5185;&#x5B58;&#x7684;PTE&#x6307;&#x5411;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x7269;&#x7406;&#x9875;&#x3002;COW fork()&#x5C06;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7528;&#x6237;PTE&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x5199;&#x3002;&#x5F53;&#x4EFB;&#x4E00;&#x8FDB;&#x7A0B;&#x8BD5;&#x56FE;&#x5199;&#x5165;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;COW&#x9875;&#x65F6;&#xFF0C;CPU&#x5C06;&#x5F3A;&#x5236;&#x4EA7;&#x751F;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x3002;&#x5185;&#x6838;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x68C0;&#x6D4B;&#x5230;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5C06;&#x4E3A;&#x51FA;&#x9519;&#x8FDB;&#x7A0B;&#x5206;&#x914D;&#x4E00;&#x9875;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF0C;&#x5C06;&#x539F;&#x59CB;&#x9875;&#x590D;&#x5236;&#x5230;&#x65B0;&#x9875;&#x4E2D;&#xFF0C;&#x5E76;&#x4FEE;&#x6539;&#x51FA;&#x9519;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;&#x76F8;&#x5173;PTE&#x6307;&#x5411;&#x65B0;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x5C06;PTE&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x5199;&#x3002;&#x5F53;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x5C06;&#x80FD;&#x591F;&#x5199;&#x5165;&#x5176;&#x9875;&#x9762;&#x526F;&#x672C;&#x3002;</p>
+<p>COW fork()&#x5C06;&#x4F7F;&#x5F97;&#x91CA;&#x653E;&#x7528;&#x6237;&#x5185;&#x5B58;&#x7684;&#x7269;&#x7406;&#x9875;&#x9762;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x68D8;&#x624B;&#x3002;&#x7ED9;&#x5B9A;&#x7684;&#x7269;&#x7406;&#x9875;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x9875;&#x8868;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x6D88;&#x5931;&#x65F6;&#x624D;&#x5E94;&#x8BE5;&#x88AB;&#x91CA;&#x653E;&#x3002;</p>
+<h1 id="implement-copy-on-write-hard"><a name="implement-copy-on-write-hard" class="anchor-navigation-ex-anchor" href="#implement-copy-on-write-hard"><i class="fa fa-link" aria-hidden="true"></i></a>Implement copy-on write (hard)</h1>
+<blockquote>
+<p>[!TIP|label:YOUR JOB]
+&#x60A8;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x5728;xv6&#x5185;&#x6838;&#x4E2D;&#x5B9E;&#x73B0;copy-on-write fork&#x3002;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x5185;&#x6838;&#x540C;&#x65F6;&#x6210;&#x529F;&#x6267;&#x884C;<code>cowtest</code>&#x548C;<code>usertests</code>&#x7A0B;&#x5E8F;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
+</blockquote>
+<p>&#x4E3A;&#x4E86;&#x5E2E;&#x52A9;&#x6D4B;&#x8BD5;&#x4F60;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6848;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>cowtest</code>&#x7684;xv6&#x7A0B;&#x5E8F;&#xFF08;&#x6E90;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E;<strong><em>user/cowtest.c</em></strong>&#xFF09;&#x3002;<code>cowtest</code>&#x8FD0;&#x884C;&#x5404;&#x79CD;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F46;&#x5728;&#x672A;&#x4FEE;&#x6539;&#x7684;xv6&#x4E0A;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E5F;&#x4F1A;&#x5931;&#x8D25;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6700;&#x521D;&#x60A8;&#x5C06;&#x770B;&#x5230;&#xFF1A;</p>
+<pre><code class="lang-bash">$ cowtest
+simple: fork() failed
+$
+</code></pre>
+<p>&#x201C;simple&#x201D;&#x6D4B;&#x8BD5;&#x5206;&#x914D;&#x8D85;&#x8FC7;&#x4E00;&#x534A;&#x7684;&#x53EF;&#x7528;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;<code>fork()</code>&#x3002;<code>fork</code>&#x5931;&#x8D25;&#x7684;&#x539F;&#x56E0;&#x662F;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x53EF;&#x7528;&#x7269;&#x7406;&#x5185;&#x5B58;&#x6765;&#x4E3A;&#x5B50;&#x8FDB;&#x7A0B;&#x63D0;&#x4F9B;&#x7236;&#x8FDB;&#x7A0B;&#x5185;&#x5B58;&#x7684;&#x5B8C;&#x6574;&#x526F;&#x672C;&#x3002;</p>
+<p>&#x5B8C;&#x6210;&#x672C;&#x5B9E;&#x9A8C;&#x540E;&#xFF0C;&#x5185;&#x6838;&#x5E94;&#x8BE5;&#x901A;&#x8FC7;<code>cowtest</code>&#x548C;<code>usertests</code>&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x3002;&#x5373;&#xFF1A;</p>
+<pre><code class="lang-bash">$ cowtest
+simple: ok
+simple: ok
+three: zombie!
+ok
+three: zombie!
+ok
+three: zombie!
+ok
+file: ok
+ALL COW TESTS PASSED
+$ usertests
+...
+ALL TESTS PASSED
+$
+</code></pre>
+<p><strong>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5408;&#x7406;&#x7684;&#x653B;&#x514B;&#x8BA1;&#x5212;&#xFF1A;</strong></p>
+<ol>
+<li>&#x4FEE;&#x6539;<code>uvmcopy()</code>&#x5C06;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x7269;&#x7406;&#x9875;&#x6620;&#x5C04;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5206;&#x914D;&#x65B0;&#x9875;&#x3002;&#x5728;&#x5B50;&#x8FDB;&#x7A0B;&#x548C;&#x7236;&#x8FDB;&#x7A0B;&#x7684;PTE&#x4E2D;&#x6E05;&#x9664;<code>PTE_W</code>&#x6807;&#x5FD7;&#x3002;</li>
+<li>&#x4FEE;&#x6539;<code>usertrap()</code>&#x4EE5;&#x8BC6;&#x522B;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x3002;&#x5F53;COW&#x9875;&#x9762;&#x51FA;&#x73B0;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;<code>kalloc()</code>&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x5C06;&#x65E7;&#x9875;&#x9762;&#x590D;&#x5236;&#x5230;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x65B0;&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x5230;PTE&#x4E2D;&#x5E76;&#x8BBE;&#x7F6E;<code>PTE_W</code>&#x3002;</li>
+<li>&#x786E;&#x4FDD;&#x6BCF;&#x4E2A;&#x7269;&#x7406;&#x9875;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;PTE&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x64A4;&#x9500;&#x65F6;&#x88AB;&#x91CA;&#x653E;&#x2014;&#x2014;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x4E00;&#x4E2A;&#x597D;&#x65B9;&#x6CD5;&#x662F;&#x4E3A;&#x6BCF;&#x4E2A;&#x7269;&#x7406;&#x9875;&#x4FDD;&#x7559;&#x5F15;&#x7528;&#x8BE5;&#x9875;&#x9762;&#x7684;&#x7528;&#x6237;&#x9875;&#x8868;&#x6570;&#x7684;&#x201C;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x201D;&#x3002;&#x5F53;<code>kalloc()</code>&#x5206;&#x914D;&#x9875;&#x65F6;&#xFF0C;&#x5C06;&#x9875;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;1&#x3002;&#x5F53;<code>fork</code>&#x5BFC;&#x81F4;&#x5B50;&#x8FDB;&#x7A0B;&#x5171;&#x4EAB;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x589E;&#x52A0;&#x9875;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF1B;&#x6BCF;&#x5F53;&#x4EFB;&#x4F55;&#x8FDB;&#x7A0B;&#x4ECE;&#x5176;&#x9875;&#x8868;&#x4E2D;&#x5220;&#x9664;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x51CF;&#x5C11;&#x9875;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x3002;<code>kfree()</code>&#x53EA;&#x5E94;&#x5728;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x4E3A;&#x96F6;&#x65F6;&#x5C06;&#x9875;&#x9762;&#x653E;&#x56DE;&#x7A7A;&#x95F2;&#x5217;&#x8868;&#x3002;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E9B;&#x8BA1;&#x6570;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x4F60;&#x5FC5;&#x987B;&#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x5982;&#x4F55;&#x7D22;&#x5F15;&#x6570;&#x7EC4;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x6570;&#x7EC4;&#x5927;&#x5C0F;&#x7684;&#x65B9;&#x6848;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x7528;&#x9875;&#x7684;&#x7269;&#x7406;&#x5730;&#x5740;&#x9664;&#x4EE5;4096&#x5BF9;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x7D22;&#x5F15;&#xFF0C;&#x5E76;&#x4E3A;&#x6570;&#x7EC4;&#x63D0;&#x4F9B;&#x7B49;&#x540C;&#x4E8E;<strong><em>kalloc.c</em></strong>&#x4E2D;<code>kinit()</code>&#x5728;&#x7A7A;&#x95F2;&#x5217;&#x8868;&#x4E2D;&#x653E;&#x7F6E;&#x7684;&#x6240;&#x6709;&#x9875;&#x9762;&#x7684;&#x6700;&#x9AD8;&#x7269;&#x7406;&#x5730;&#x5740;&#x7684;&#x5143;&#x7D20;&#x6570;&#x3002;</li>
+<li>&#x4FEE;&#x6539;<code>copyout()</code>&#x5728;&#x9047;&#x5230;COW&#x9875;&#x9762;&#x65F6;&#x4F7F;&#x7528;&#x4E0E;&#x9875;&#x9762;&#x9519;&#x8BEF;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x6848;&#x3002;</li>
+</ol>
+<p><strong>&#x63D0;&#x793A;&#xFF1A;</strong></p>
+<ul>
+<li>lazy page allocation&#x5B9E;&#x9A8C;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x8BA9;&#x60A8;&#x719F;&#x6089;&#x4E86;&#x8BB8;&#x591A;&#x4E0E;copy-on-write&#x76F8;&#x5173;&#x7684;xv6&#x5185;&#x6838;&#x4EE3;&#x7801;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x60A8;&#x4E0D;&#x5E94;&#x8BE5;&#x5C06;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x5BA4;&#x5EFA;&#x7ACB;&#x5728;&#x60A8;&#x7684;lazy allocation&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF1B;&#x76F8;&#x53CD;&#xFF0C;&#x8BF7;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x8BF4;&#x660E;&#x4ECE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;xv6&#x5F00;&#x59CB;&#x3002;</li>
+<li>&#x6709;&#x4E00;&#x79CD;&#x53EF;&#x80FD;&#x5F88;&#x6709;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;PTE&#x662F;&#x5426;&#x662F;COW&#x6620;&#x5C04;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;RISC-V PTE&#x4E2D;&#x7684;RSW&#xFF08;reserved for software&#xFF0C;&#x5373;&#x4E3A;&#x8F6F;&#x4EF6;&#x4FDD;&#x7559;&#x7684;&#xFF09;&#x4F4D;&#x6765;&#x5B9E;&#x73B0;&#x6B64;&#x76EE;&#x7684;&#x3002;</li>
+<li><code>usertests</code>&#x68C0;&#x67E5;<code>cowtest</code>&#x4E0D;&#x6D4B;&#x8BD5;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x6240;&#x4EE5;&#x522B;&#x5FD8;&#x4E24;&#x4E2A;&#x6D4B;&#x8BD5;&#x90FD;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x901A;&#x8FC7;&#x3002;</li>
+<li><strong><em>kernel/riscv.h</em></strong>&#x7684;&#x672B;&#x5C3E;&#x6709;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x5B8F;&#x548C;&#x9875;&#x8868;&#x6807;&#x5FD7;&#x4F4D;&#x7684;&#x5B9A;&#x4E49;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x51FA;&#x73B0;COW&#x9875;&#x9762;&#x9519;&#x8BEF;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x5219;&#x5E94;&#x7EC8;&#x6B62;&#x8FDB;&#x7A0B;&#x3002;</li>
+</ul>
+<h1 id="&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><a name="&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x9009;&#x7684;&#x6311;&#x6218;&#x7EC3;&#x4E60;</h1>
+<ul>
+<li>&#x4FEE;&#x6539;xv6&#x4EE5;&#x540C;&#x65F6;&#x652F;&#x6301;lazy allocation&#x548C;COW&#x3002;</li>
+<li>&#x6D4B;&#x91CF;&#x60A8;&#x7684;COW&#x5B9E;&#x73B0;&#x51CF;&#x5C11;&#x4E86;&#x591A;&#x5C11;xv6&#x62F7;&#x8D1D;&#x7684;&#x5B57;&#x8282;&#x6570;&#x4EE5;&#x53CA;&#x5206;&#x914D;&#x7684;&#x7269;&#x7406;&#x9875;&#x6570;&#x3002;&#x5BFB;&#x627E;&#x5E76;&#x5229;&#x7528;&#x673A;&#x4F1A;&#x8FDB;&#x4E00;&#x6B65;&#x51CF;&#x5C11;&#x8FD9;&#x4E9B;&#x6570;&#x5B57;&#x3002; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">copyright by duguosheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-08-19 16:24:14
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lab5.html" class="navigation navigation-prev " aria-label="Previous page: Lab5: xv6 lazy page allocation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lab7.html" class="navigation navigation-next " aria-label="Next page: Lab7: Multithreading">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lab6: Copy-on-Write Fork for xv6","level":"3.2.6","depth":2,"next":{"title":"Lab7: Multithreading","level":"3.2.7","depth":2,"path":"labs/requirements/lab7.md","ref":"labs/requirements/lab7.md","articles":[]},"previous":{"title":"Lab5: xv6 lazy page allocation","level":"3.2.5","depth":2,"path":"labs/requirements/lab5.md","ref":"labs/requirements/lab5.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","github","chapter-fold","code-optimize","splitter","pageview-count","donate","tbfed-pagefooter","flexible-alerts","ancre-navigation","custom-favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/duguosheng"},"splitter":{},"search-pro":{},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/book.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"flat","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":false}},"theme":"default","author":"DuGuoSheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"6.S081 All-In-One","gitbook":"*"},"file":{"path":"labs/requirements/lab6.md","mtime":"2021-08-19T08:24:14.550Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-19T10:39:03.220Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code-optimize/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
