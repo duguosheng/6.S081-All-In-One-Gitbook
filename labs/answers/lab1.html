@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>版本控制 · 6.S081 All-In-One</title>
+        <title>Lab1: Util · 6.S081 All-In-One</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -90,10 +90,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../requirements/summary.html" />
+    <link rel="next" href="lab4.html" />
     
     
-    <link rel="prev" href="../../tranlate_books/Journaling the Linux ext2fs Filesystem.html" />
+    <link rel="prev" href="summary.html" />
     
 
     <style>
@@ -1347,9 +1347,9 @@
         
         
     
-        <li class="chapter active" data-level="3.1" data-path="git1.html">
+        <li class="chapter " data-level="3.1" data-path="../use_git/git1.html">
             
-                <a href="git1.html">
+                <a href="../use_git/git1.html">
             
                     
                     版本控制
@@ -1522,9 +1522,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../answers/summary.html">
+        <li class="chapter " data-level="3.3" data-path="summary.html">
             
-                <a href="../answers/summary.html">
+                <a href="summary.html">
             
                     
                     实验解析
@@ -1536,9 +1536,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.3.1" data-path="../answers/lab1.html">
+        <li class="chapter active" data-level="3.3.1" data-path="lab1.html">
             
-                <a href="../answers/lab1.html">
+                <a href="lab1.html">
             
                     
                     Lab1: Util
@@ -1549,9 +1549,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.2" data-path="../answers/lab4.html">
+        <li class="chapter " data-level="3.3.2" data-path="lab4.html">
             
-                <a href="../answers/lab4.html">
+                <a href="lab4.html">
             
                     
                     Lab4: Traps
@@ -1562,9 +1562,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.3" data-path="../answers/lab5.html">
+        <li class="chapter " data-level="3.3.3" data-path="lab5.html">
             
-                <a href="../answers/lab5.html">
+                <a href="lab5.html">
             
                     
                     Lab5: Xv6 lazy page allocation
@@ -1575,9 +1575,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.4" data-path="../answers/lab6.html">
+        <li class="chapter " data-level="3.3.4" data-path="lab6.html">
             
-                <a href="../answers/lab6.html">
+                <a href="lab6.html">
             
                     
                     Lab6: Copy-on-Write Fork for xv6
@@ -1588,9 +1588,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.5" data-path="../answers/lab7.html">
+        <li class="chapter " data-level="3.3.5" data-path="lab7.html">
             
-                <a href="../answers/lab7.html">
+                <a href="lab7.html">
             
                     
                     Lab7: Multithreading
@@ -1601,9 +1601,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.6" data-path="../answers/lab8.html">
+        <li class="chapter " data-level="3.3.6" data-path="lab8.html">
             
-                <a href="../answers/lab8.html">
+                <a href="lab8.html">
             
                     
                     Lab8: Locks
@@ -1614,9 +1614,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.7" data-path="../answers/lab9.html">
+        <li class="chapter " data-level="3.3.7" data-path="lab9.html">
             
-                <a href="../answers/lab9.html">
+                <a href="lab9.html">
             
                     
                     Lab9: File system
@@ -1627,9 +1627,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.8" data-path="../answers/lab10.html">
+        <li class="chapter " data-level="3.3.8" data-path="lab10.html">
             
-                <a href="../answers/lab10.html">
+                <a href="lab10.html">
             
                     
                     Lab10: Mmap
@@ -1675,7 +1675,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >版本控制</a>
+        <a href="../.." >Lab1: Util</a>
     </h1>
 </div>
 
@@ -1690,62 +1690,421 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github"><b></b>&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github</a></li></ul></div><a href="#&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github"><a name="&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github" class="anchor-navigation-ex-anchor" href="#&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;github</h1>
-<blockquote>
-<p>[!DANGER]
-MIT 6.S081 &#x8FD9;&#x95E8;&#x8BFE;&#x7A0B;&#x6BCF;&#x4E2A;lab&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;git&#x5206;&#x652F;&#xFF0C;&#x6240;&#x4EE5;&#x8BF7;&#x4E0D;&#x8981;&#x64C5;&#x81EA;&#x5C06;<strong><em>.git</em></strong>&#x76EE;&#x5F55;&#x5220;&#x9664;&#x6216;&#x66F4;&#x6539;origin&#x6307;&#x5411;&#x7684;&#x4ED3;&#x5E93;&#x5730;&#x5740;</p>
-</blockquote>
-<p>(1).  <strong>&#x9996;&#x5148;&#x5C06;mit&#x7684;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x514B;&#x9686;&#x5230;&#x672C;&#x5730;</strong></p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> git://g.csail.mit.edu/xv6-labs-2020
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#lab1-util"><b></b>lab1: Util</a></li><ul><li><span class="title-icon "></span><a href="#sleep"><b></b>sleep</a></li><li><span class="title-icon "></span><a href="#pingpong"><b></b>pingpong</a></li><li><span class="title-icon "></span><a href="#primes"><b></b>primes</a></li><li><span class="title-icon "></span><a href="#find"><b></b>find</a></li><li><span class="title-icon "></span><a href="#xargs"><b></b>xargs</a></li></ul></ul></div><a href="#lab1-util" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="lab1-util"><a name="lab1-util" class="anchor-navigation-ex-anchor" href="#lab1-util"><i class="fa fa-link" aria-hidden="true"></i></a>lab1: Util</h1>
+<h2 id="sleep"><a name="sleep" class="anchor-navigation-ex-anchor" href="#sleep"><i class="fa fa-link" aria-hidden="true"></i></a>sleep</h2>
+<p>&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#xFF0C;&#x4E0D;&#x591A;&#x8BF4;&#x4E86;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;kernel/types.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;user/user.h&quot;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+  <span class="hljs-keyword">if</span> (argc != <span class="hljs-number">2</span>) { <span class="hljs-comment">//&#x53C2;&#x6570;&#x9519;&#x8BEF;</span>
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;usage: sleep &lt;time&gt;\n&quot;</span>);
+    <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+  }
+  sleep(atoi(argv[<span class="hljs-number">1</span>]));
+  <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+}
 </code></pre>
-<p>(2). <strong>&#x5728;github&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7A7A;&#x4ED3;&#x5E93;</strong></p>
-<p>&#x521B;&#x5EFA;&#x5B8C;&#x6210;&#x540E;&#x4F1A;&#x6709;&#x63D0;&#x793A;&#x4EE3;&#x7801;&#xFF0C;&#x8BF7;<strong>&#x4E0D;&#x8981;</strong>&#x6839;&#x636E;&#x63D0;&#x793A;&#x4EE3;&#x7801;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x8BB0;&#x4E0B;&#x53F3;&#x56FE;&#x4E2D;&#x7EA2;&#x8272;&#x6807;&#x6CE8;&#x7684;&#x4ED3;&#x5E93;&#x5730;&#x5740;</p>
-<p><img src="images/p1.png" alt="img"><img src="images/p2.png" alt="img"></p>
-<p>(3). <strong>&#x6DFB;&#x52A0;git&#x4ED3;&#x5E93;&#x5730;&#x5740;</strong></p>
-<p>&#x67E5;&#x770B;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;git&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;<strong><em>origin</em></strong>&#x4E3B;&#x673A;&#x540D;&#x4E0B;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x5BF9;&#x5E94;&#x7684;&#x4E0A;&#x6E38;&#x4ED3;&#x5E93;&#x5730;&#x5740;</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> xv6-labs-2020/
-cat .git/config
+<h2 id="pingpong"><a name="pingpong" class="anchor-navigation-ex-anchor" href="#pingpong"><i class="fa fa-link" aria-hidden="true"></i></a>pingpong</h2>
+<p>&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x7BA1;&#x9053;&#x8FDB;&#x884C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5982;&#x679C;&#x7BA1;&#x9053;&#x7684;&#x5199;&#x7AEF;&#x6CA1;&#x6709;<code>close</code>&#xFF0C;&#x90A3;&#x4E48;&#x7BA1;&#x9053;&#x4E2D;&#x6570;&#x636E;&#x4E3A;&#x7A7A;&#x65F6;&#x5BF9;&#x7BA1;&#x9053;&#x7684;&#x8BFB;&#x53D6;&#x5C06;&#x4F1A;&#x963B;&#x585E;&#x3002;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x7BA1;&#x9053;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x65E9;&#x7684;&#x5173;&#x95ED;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;kernel/types.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;user/user.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RD 0 <span class="hljs-comment">//pipe&#x7684;read&#x7AEF;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WR 1 <span class="hljs-comment">//pipe&#x7684;write&#x7AEF;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span> </span>{
+    <span class="hljs-keyword">char</span> buf = <span class="hljs-string">&apos;P&apos;</span>; <span class="hljs-comment">//&#x7528;&#x4E8E;&#x4F20;&#x9001;&#x7684;&#x5B57;&#x8282;</span>
+
+    <span class="hljs-keyword">int</span> fd_c2p[<span class="hljs-number">2</span>]; <span class="hljs-comment">//&#x5B50;&#x8FDB;&#x7A0B;-&gt;&#x7236;&#x8FDB;&#x7A0B;</span>
+    <span class="hljs-keyword">int</span> fd_p2c[<span class="hljs-number">2</span>]; <span class="hljs-comment">//&#x7236;&#x8FDB;&#x7A0B;-&gt;&#x5B50;&#x8FDB;&#x7A0B;</span>
+    pipe(fd_c2p);
+    pipe(fd_p2c);
+
+    <span class="hljs-keyword">int</span> pid = fork();
+    <span class="hljs-keyword">int</span> exit_status = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">if</span> (pid &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;fork() error!\n&quot;</span>);
+        close(fd_c2p[RD]);
+        close(fd_c2p[WR]);
+        close(fd_p2c[RD]);
+        close(fd_p2c[WR]);
+        <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) { <span class="hljs-comment">//&#x5B50;&#x8FDB;&#x7A0B;</span>
+        close(fd_p2c[WR]);
+        close(fd_c2p[RD]);
+
+        <span class="hljs-keyword">if</span> (read(fd_p2c[RD], &amp;buf, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) != <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;child read() error!\n&quot;</span>);
+            exit_status = <span class="hljs-number">1</span>; <span class="hljs-comment">//&#x6807;&#x8BB0;&#x51FA;&#x9519;</span>
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;%d: received ping\n&quot;</span>, getpid());
+        }
+
+        <span class="hljs-keyword">if</span> (write(fd_c2p[WR], &amp;buf, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) != <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;child write() error!\n&quot;</span>);
+            exit_status = <span class="hljs-number">1</span>;
+        }
+
+        close(fd_p2c[RD]);
+        close(fd_c2p[WR]);
+
+        <span class="hljs-built_in">exit</span>(exit_status);
+    } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//&#x7236;&#x8FDB;&#x7A0B;</span>
+        close(fd_p2c[RD]);
+        close(fd_c2p[WR]);
+
+        <span class="hljs-keyword">if</span> (write(fd_p2c[WR], &amp;buf, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) != <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;parent write() error!\n&quot;</span>);
+            exit_status = <span class="hljs-number">1</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (read(fd_c2p[RD], &amp;buf, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) != <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;parent read() error!\n&quot;</span>);
+            exit_status = <span class="hljs-number">1</span>; <span class="hljs-comment">//&#x6807;&#x8BB0;&#x51FA;&#x9519;</span>
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;%d: received pong\n&quot;</span>, getpid());
+        }
+
+        close(fd_p2c[WR]);
+        close(fd_c2p[RD]);
+
+        <span class="hljs-built_in">exit</span>(exit_status);
+    }
+}
 </code></pre>
+<h2 id="primes"><a name="primes" class="anchor-navigation-ex-anchor" href="#primes"><i class="fa fa-link" aria-hidden="true"></i></a>primes</h2>
+<p>&#x8FD9;&#x4E2A;&#x611F;&#x89C9;&#x8FD8;&#x662F;&#x6709;&#x4E9B;&#x96BE;&#x5EA6;&#x7684;&#xFF0C;&#x5B83;&#x7684;&#x601D;&#x60F3;&#x662F;&#x591A;&#x8FDB;&#x7A0B;&#x7248;&#x672C;&#x7684;&#x9012;&#x5F52;&#xFF0C;&#x4E0D;&#x65AD;&#x5730;&#x5C06;&#x5DE6;&#x90BB;&#x5C45;&#x7BA1;&#x9053;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7B5B;&#x9009;&#x540E;&#x4F20;&#x9001;&#x7ED9;&#x53F3;&#x90BB;&#x5C45;&#xFF0C;&#x6BCF;&#x6B21;&#x4F20;&#x9001;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x90FD;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x7D20;&#x6570;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x8FD8;&#x662F;&#x770B;&#x4EE3;&#x7801;&#x5427;&#xFF0C;&#x91CC;&#x9762;&#x6CE8;&#x91CA;&#x5E94;&#x8BE5;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x6E05;&#x695A;&#x7684;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;kernel/types.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;user/user.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RD 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WR 1</span>
+
+<span class="hljs-keyword">const</span> uint INT_LEN = <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>);
+
+<span class="hljs-comment">/**
+ * @brief &#x8BFB;&#x53D6;&#x5DE6;&#x90BB;&#x5C45;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;
+ * @param lpipe &#x5DE6;&#x90BB;&#x5C45;&#x7684;&#x7BA1;&#x9053;&#x7B26;
+ * @param pfirst &#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x5730;&#x5740;
+ * @return &#x5982;&#x679C;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x8FD4;&#x56DE;-1,&#x6709;&#x6570;&#x636E;&#x8FD4;&#x56DE;0
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lpipe_first_data</span><span class="hljs-params">(<span class="hljs-keyword">int</span> lpipe[<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> *dst)</span>
+</span>{
+  <span class="hljs-keyword">if</span> (read(lpipe[RD], dst, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)) == <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)) {
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;prime %d\n&quot;</span>, *dst);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+}
+
+<span class="hljs-comment">/**
+ * @brief &#x8BFB;&#x53D6;&#x5DE6;&#x90BB;&#x5C45;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x88AB;first&#x6574;&#x9664;&#x7684;&#x5199;&#x5165;&#x53F3;&#x90BB;&#x5C45;
+ * @param lpipe &#x5DE6;&#x90BB;&#x5C45;&#x7684;&#x7BA1;&#x9053;&#x7B26;
+ * @param rpipe &#x53F3;&#x90BB;&#x5C45;&#x7684;&#x7BA1;&#x9053;&#x7B26;
+ * @param first &#x5DE6;&#x90BB;&#x5C45;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">transmit_data</span><span class="hljs-params">(<span class="hljs-keyword">int</span> lpipe[<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> rpipe[<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> first)</span>
+</span>{
+  <span class="hljs-keyword">int</span> data;
+  <span class="hljs-comment">// &#x4ECE;&#x5DE6;&#x7BA1;&#x9053;&#x8BFB;&#x53D6;&#x6570;&#x636E;</span>
+  <span class="hljs-keyword">while</span> (read(lpipe[RD], &amp;data, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)) == <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)) {
+    <span class="hljs-comment">// &#x5C06;&#x65E0;&#x6CD5;&#x6574;&#x9664;&#x7684;&#x6570;&#x636E;&#x4F20;&#x9012;&#x5165;&#x53F3;&#x7BA1;&#x9053;</span>
+    <span class="hljs-keyword">if</span> (data % first)
+      write(rpipe[WR], &amp;data, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+  }
+  close(lpipe[RD]);
+  close(rpipe[WR]);
+}
+
+<span class="hljs-comment">/**
+ * @brief &#x5BFB;&#x627E;&#x7D20;&#x6570;
+ * @param lpipe &#x5DE6;&#x90BB;&#x5C45;&#x7BA1;&#x9053;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">primes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> lpipe[<span class="hljs-number">2</span>])</span>
+</span>{
+  close(lpipe[WR]);
+  <span class="hljs-keyword">int</span> first;
+  <span class="hljs-keyword">if</span> (lpipe_first_data(lpipe, &amp;first) == <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">int</span> p[<span class="hljs-number">2</span>];
+    pipe(p); <span class="hljs-comment">// &#x5F53;&#x524D;&#x7684;&#x7BA1;&#x9053;</span>
+    transmit_data(lpipe, p, first);
+
+    <span class="hljs-keyword">if</span> (fork() == <span class="hljs-number">0</span>) {
+      primes(p);    <span class="hljs-comment">// &#x9012;&#x5F52;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4F46;&#x8FD9;&#x5C06;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;</span>
+    } <span class="hljs-keyword">else</span> {
+      close(p[RD]);
+      wait(<span class="hljs-number">0</span>);
+    }
+  }
+  <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+  <span class="hljs-keyword">int</span> p[<span class="hljs-number">2</span>];
+  pipe(p);
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= <span class="hljs-number">35</span>; ++i) <span class="hljs-comment">//&#x5199;&#x5165;&#x521D;&#x59CB;&#x6570;&#x636E;</span>
+    write(p[WR], &amp;i, INT_LEN);
+
+  <span class="hljs-keyword">if</span> (fork() == <span class="hljs-number">0</span>) {
+    primes(p);
+  } <span class="hljs-keyword">else</span> {
+    close(p[WR]);
+    close(p[RD]);
+    wait(<span class="hljs-number">0</span>);
+  }
+
+  <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+}
+</code></pre>
+<h2 id="find"><a name="find" class="anchor-navigation-ex-anchor" href="#find"><i class="fa fa-link" aria-hidden="true"></i></a>find</h2>
+<p>&#x611F;&#x89C9;&#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x8BF4;&#x7684;0.0&#xFF0C;&#x4EE3;&#x7801;&#x57FA;&#x672C;&#x4E0A;&#x90FD;&#x662F;COPY&#x7684;<em>ls.c</em>&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-c">#include &quot;kernel/types.h&quot;
+
+#include &quot;kernel/fs.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;user/user.h&quot;
+
+void find(char *path, const char *filename)
+{
+  char buf[512], *p;
+  int fd;
+  struct dirent de;
+  struct stat st;
+
+  if ((fd = open(path, 0)) &lt; 0) {
+    fprintf(2, &quot;find: cannot open %s\n&quot;, path);
+    return;
+  }
+
+  if (fstat(fd, &amp;st) &lt; 0) {
+    fprintf(2, &quot;find: cannot fstat %s\n&quot;, path);
+    close(fd);
+    return;
+  }
+
+  //&#x53C2;&#x6570;&#x9519;&#x8BEF;&#xFF0C;find&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;&#x76EE;&#x5F55;
+  if (st.type != T_DIR) {
+    fprintf(2, &quot;usage: find &lt;DIRECTORY&gt; &lt;filename&gt;\n&quot;);
+    return;
+  }
+
+  if (strlen(path) + 1 + DIRSIZ + 1 &gt; sizeof buf) {
+    fprintf(2, &quot;find: path too long\n&quot;);
+    return;
+  }
+  strcpy(buf, path);
+  p = buf + strlen(buf);
+  *p++ = &apos;/&apos;; //p&#x6307;&#x5411;&#x6700;&#x540E;&#x4E00;&#x4E2A;&apos;/&apos;&#x4E4B;&#x540E;
+  while (read(fd, &amp;de, sizeof de) == sizeof de) {
+    if (de.inum == 0)
+      continue;
+    memmove(p, de.name, DIRSIZ); //&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x540D;&#x79F0;
+    p[DIRSIZ] = 0;               //&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x6807;&#x5FD7;
+    if (stat(buf, &amp;st) &lt; 0) {
+      fprintf(2, &quot;find: cannot stat %s\n&quot;, buf);
+      continue;
+    }
+    //&#x4E0D;&#x8981;&#x5728;&#x201C;.&#x201D;&#x548C;&#x201C;..&#x201D;&#x76EE;&#x5F55;&#x4E2D;&#x9012;&#x5F52;
+    if (st.type == T_DIR &amp;&amp; strcmp(p, &quot;.&quot;) != 0 &amp;&amp; strcmp(p, &quot;..&quot;) != 0) {
+      find(buf, filename);
+    } else if (strcmp(filename, p) == 0)
+      printf(&quot;%s\n&quot;, buf);
+  }
+
+  close(fd);
+}
+
+int main(int argc, char *argv[])
+{
+  if (argc != 3) {
+    fprintf(2, &quot;usage: find &lt;directory&gt; &lt;filename&gt;\n&quot;);
+    exit(1);
+  }
+  find(argv[1], argv[2]);
+  exit(0);
+}
+</code></pre>
+<h2 id="xargs"><a name="xargs" class="anchor-navigation-ex-anchor" href="#xargs"><i class="fa fa-link" aria-hidden="true"></i></a>xargs</h2>
+<p>&#x4E4B;&#x524D;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x6211;&#x662F;&#x505A;&#x9519;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4ECD;&#x7136;&#x901A;&#x8FC7;&#x4E86;&#x6D4B;&#x8BD5;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x9898;&#x76EE;&#x4E2D;&#x8981;&#x6C42;&#x4E3A;&#x6BCF;&#x4E00;&#x884C;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x3002;&#x4E4B;&#x524D;&#x5237;&#x529B;&#x6263;&#x7684;&#x65F6;&#x5019;&#x5904;&#x7406;&#x5B57;&#x7B26;&#x4E32;&#x597D;&#x51E0;&#x6B21;&#x7528;&#x5230;&#x4E86;&#x6709;&#x9650;&#x72B6;&#x6001;&#x81EA;&#x52A8;&#x673A;&#xFF0C;&#x867D;&#x7136;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x8981;&#x641E;&#x6E05;&#x695A;&#x903B;&#x8F91;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x53CD;&#x800C;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x5199;&#x51FA;&#x6765;&#x3002;</p>
+<p>xv6&#x4E2D;&#x7684;<code>echo</code>&#x547D;&#x4EE4;&#x5E76;&#x4E0D;&#x80FD;&#x8F93;&#x51FA;&#x6362;&#x884C;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;&#x5728;xv6&#x548C;linux&#x4E2D;&#x6267;&#x884C;&#x547D;&#x4EE4;</p>
+<p>xv6&#x6267;&#x884C;<code>echo &quot;1\n2&quot;</code>&#x8F93;&#x51FA;</p>
+<pre><code class="lang-text">&quot;1\n2&quot;
+</code></pre>
+<p>linux&#x6267;&#x884C;<code>echo -e &quot;1\n2&quot;</code>&#x8F93;&#x51FA;&#xFF08;<code>-e</code>&#x542F;&#x7528;&#x8F6C;&#x4E49;&#xFF09;</p>
+<pre><code class="lang-text">1
+2
+</code></pre>
+<p>&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x60F3;&#x5230;&#x5982;&#x4F55;&#x5728;xv6&#x4E2D;&#x9A8C;&#x8BC1;<code>xargs</code>&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C06;&#x7C7B;&#x4F3C;&#xFF08;&#x7C7B;&#x4F3C;&#x662F;&#x56E0;&#x4E3A;&#x5934;&#x6587;&#x4EF6;&#x4E0D;&#x540C;&#xFF0C;&#x4E14;&#x5C06;<code>exec</code>&#x66FF;&#x6362;&#x4E3A;&#x4E86;<code>execvp</code>&#xFF09;&#x7684;&#x4EE3;&#x7801;<em>xargs.c</em>&#x5728;linux&#x4E0B;&#x7F16;&#x8BD1;&#x5E76;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;&#x7B2C;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x662F;&#x4F7F;&#x7528;linux&#x4E2D;<code>xargs</code>&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x7B2C;&#x4E8C;&#x6761;&#x547D;&#x4EE4;&#x662F;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x5199;&#x7684;<code>xargs</code>&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4E8C;&#x8005;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
 <p><img src="images/p3.png" alt="img"></p>
-<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E0D;&#x8981;&#x4F7F;&#x7528;<strong><em>origin</em></strong>&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x540D;&#x5BF9;&#x5E94;&#x5230;github&#x4ED3;&#x5E93;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4F7F;&#x7528;<strong><em>github</em></strong></p>
-<pre><code class="lang-bash">git remote add github &#x4F60;&#x7684;&#x4ED3;&#x5E93;&#x5730;&#x5740;
-cat .git/config
+<p>&#x6709;&#x9650;&#x72B6;&#x6001;&#x81EA;&#x52A8;&#x673A;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#xFF0C;&#x4F8B;&#x5982;&#x5BF9;&#x4E8E;</p>
+<pre><code class="lang-text"> 1 \n 23
+0123 456
 </code></pre>
-<p><img src="images/p4.png" alt="img"></p>
-<p>(4). <strong><code>git push</code>&#x547D;&#x4EE4;</strong></p>
-<ul>
-<li><strong>&#x529F;&#x80FD;</strong>&#xFF1A;<code>git push</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x4ECE;&#x5C06;&#x672C;&#x5730;&#x7684;&#x5206;&#x652F;&#x7248;&#x672C;&#x4E0A;&#x4F20;&#x5230;&#x8FDC;&#x7A0B;&#x5E76;&#x5408;&#x5E76;&#x3002;</li>
-<li><strong>&#x547D;&#x4EE4;&#x683C;&#x5F0F;</strong>&#xFF1A;</li>
-</ul>
-<pre><code class="lang-bash">git push &lt;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x540D;&gt; &lt;&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;&gt;:&lt;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;&gt;
+<p>&#x6765;&#x8BF4;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#x662F;&#x5F85;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7B2C;&#x4E8C;&#x884C;&#x662F;&#x5B57;&#x7B26;&#x4E0B;&#x6807;&#xFF0C;&#x8D77;&#x59CB;&#x65F6;&#x72B6;&#x6001;&#x4E3A;<code>S_WAIT</code>&#xFF0C;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-text">&#x8BFB;&#x53D6;&#x5230;0&#x5904;&#x7684;&#x7A7A;&#x683C;  &#x72B6;&#x6001;&#x7531;S_WAIT&#x53D8;&#x4E3A;S_WAIT&#xFF0C;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x53C2;&#x6570;&#x5230;&#x6765;&#xFF08;arg_beg&#x524D;&#x79FB;&#xFF09;
+&#x8BFB;&#x53D6;&#x5230;1&#x5904;&#x7684;&#x5B57;&#x7B26;1 &#x72B6;&#x6001;&#x7531;S_WAIT&#x53D8;&#x4E3A;S_ARG&#xFF0C;&#x5F00;&#x59CB;&#x8BFB;&#x53D6;&#x53C2;&#x6570;&#xFF08;arg_beg&#x4E0D;&#x52A8;&#xFF09;
+&#x8BFB;&#x53D6;&#x5230;2&#x5904;&#x7684;&#x7A7A;&#x683C;  &#x72B6;&#x6001;&#x7531;S_ARG&#x53D8;&#x4E3A;S_ARG_END&#xFF0C;&#x50A8;&#x5B58;&#x53C2;&#x6570;&#x5730;&#x5740;&#xFF08;&#x5C06;lines[arg_beg]&#x7684;&#x5730;&#x5740;&#x5B58;&#x5165;x_argv&#x4E2D;&#xFF09;
+&#x8BFB;&#x53D6;&#x5230;3&#x5904;&#x7684;&#x6362;&#x884C;  &#x72B6;&#x6001;&#x7531;S_ARG_END&#x53D8;&#x4E3A;S_LINE_END&#xFF0C;fork&#x540E;&#x6267;&#x884C;&#x7A0B;&#x5E8F;
+...&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;
 </code></pre>
-<p>&#x5982;&#x679C;&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x5192;&#x53F7;&#xFF1A;</p>
-<pre><code class="lang-bash">git push &lt;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x540D;&gt; &lt;&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;&gt;
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;kernel/types.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;user/user.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;kernel/param.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXSZ 512</span>
+<span class="hljs-comment">// &#x6709;&#x9650;&#x72B6;&#x6001;&#x81EA;&#x52A8;&#x673A;&#x72B6;&#x6001;&#x5B9A;&#x4E49;</span>
+<span class="hljs-keyword">enum</span> state {
+  S_WAIT,         <span class="hljs-comment">// &#x7B49;&#x5F85;&#x53C2;&#x6570;&#x8F93;&#x5165;&#xFF0C;&#x6B64;&#x72B6;&#x6001;&#x4E3A;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x6216;&#x5F53;&#x524D;&#x5B57;&#x7B26;&#x4E3A;&#x7A7A;&#x683C;</span>
+  S_ARG,          <span class="hljs-comment">// &#x53C2;&#x6570;&#x5185;</span>
+  S_ARG_END,      <span class="hljs-comment">// &#x53C2;&#x6570;&#x7ED3;&#x675F;</span>
+  S_ARG_LINE_END, <span class="hljs-comment">// &#x5DE6;&#x4FA7;&#x6709;&#x53C2;&#x6570;&#x7684;&#x6362;&#x884C;&#xFF0C;&#x4F8B;&#x5982;&quot;arg\n&quot;</span>
+  S_LINE_END,     <span class="hljs-comment">// &#x5DE6;&#x4FA7;&#x4E3A;&#x7A7A;&#x683C;&#x7684;&#x6362;&#x884C;&#xFF0C;&#x4F8B;&#x5982;&quot;arg  \n&quot;&quot;</span>
+  S_END           <span class="hljs-comment">// &#x7ED3;&#x675F;&#xFF0C;EOF</span>
+};
+
+<span class="hljs-comment">// &#x5B57;&#x7B26;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;</span>
+<span class="hljs-keyword">enum</span> char_type {
+  C_SPACE,
+  C_CHAR,
+  C_LINE_END
+};
+
+<span class="hljs-comment">/**
+ * @brief &#x83B7;&#x53D6;&#x5B57;&#x7B26;&#x7C7B;&#x578B;
+ *
+ * @param c &#x5F85;&#x5224;&#x5B9A;&#x7684;&#x5B57;&#x7B26;
+ * @return enum char_type &#x5B57;&#x7B26;&#x7C7B;&#x578B;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">enum</span> char_type <span class="hljs-title">get_char_type</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c)</span>
+</span>{
+  <span class="hljs-keyword">switch</span> (c) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos; &apos;</span>:
+    <span class="hljs-keyword">return</span> C_SPACE;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;\n&apos;</span>:
+    <span class="hljs-keyword">return</span> C_LINE_END;
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">return</span> C_CHAR;
+  }
+}
+
+<span class="hljs-comment">/**
+ * @brief &#x72B6;&#x6001;&#x8F6C;&#x6362;
+ *
+ * @param cur &#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;
+ * @param ct &#x5C06;&#x8981;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x7B26;
+ * @return enum state &#x8F6C;&#x6362;&#x540E;&#x7684;&#x72B6;&#x6001;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">enum</span> state <span class="hljs-title">transform_state</span><span class="hljs-params">(<span class="hljs-keyword">enum</span> state cur, <span class="hljs-keyword">enum</span> char_type ct)</span>
+</span>{
+  <span class="hljs-keyword">switch</span> (cur) {
+  <span class="hljs-keyword">case</span> S_WAIT:
+    <span class="hljs-keyword">if</span> (ct == C_SPACE)    <span class="hljs-keyword">return</span> S_WAIT;
+    <span class="hljs-keyword">if</span> (ct == C_LINE_END) <span class="hljs-keyword">return</span> S_LINE_END;
+    <span class="hljs-keyword">if</span> (ct == C_CHAR)     <span class="hljs-keyword">return</span> S_ARG;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> S_ARG:
+    <span class="hljs-keyword">if</span> (ct == C_SPACE)    <span class="hljs-keyword">return</span> S_ARG_END;
+    <span class="hljs-keyword">if</span> (ct == C_LINE_END) <span class="hljs-keyword">return</span> S_ARG_LINE_END;
+    <span class="hljs-keyword">if</span> (ct == C_CHAR)     <span class="hljs-keyword">return</span> S_ARG;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> S_ARG_END:
+  <span class="hljs-keyword">case</span> S_ARG_LINE_END:
+  <span class="hljs-keyword">case</span> S_LINE_END:
+    <span class="hljs-keyword">if</span> (ct == C_SPACE)    <span class="hljs-keyword">return</span> S_WAIT;
+    <span class="hljs-keyword">if</span> (ct == C_LINE_END) <span class="hljs-keyword">return</span> S_LINE_END;
+    <span class="hljs-keyword">if</span> (ct == C_CHAR)     <span class="hljs-keyword">return</span> S_ARG;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-keyword">break</span>;
+  }
+  <span class="hljs-keyword">return</span> S_END;
+}
+
+
+<span class="hljs-comment">/**
+ * @brief &#x5C06;&#x53C2;&#x6570;&#x5217;&#x8868;&#x540E;&#x9762;&#x7684;&#x5143;&#x7D20;&#x5168;&#x90E8;&#x7F6E;&#x4E3A;&#x7A7A;
+ *        &#x7528;&#x4E8E;&#x6362;&#x884C;&#x65F6;&#xFF0C;&#x91CD;&#x65B0;&#x8D4B;&#x4E88;&#x53C2;&#x6570;
+ *
+ * @param x_argv &#x53C2;&#x6570;&#x6307;&#x9488;&#x6570;&#x7EC4;
+ * @param beg &#x8981;&#x6E05;&#x7A7A;&#x7684;&#x8D77;&#x59CB;&#x4E0B;&#x6807;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">clearArgv</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *x_argv[MAXARG], <span class="hljs-keyword">int</span> beg)</span>
+</span>{
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = beg; i &lt; MAXARG; ++i)
+    x_argv[i] = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+  <span class="hljs-keyword">if</span> (argc - <span class="hljs-number">1</span> &gt;= MAXARG) {
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;xargs: too many arguments.\n&quot;</span>);
+    <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+  }
+  <span class="hljs-keyword">char</span> lines[MAXSZ];
+  <span class="hljs-keyword">char</span> *p = lines;
+  <span class="hljs-keyword">char</span> *x_argv[MAXARG] = {<span class="hljs-number">0</span>}; <span class="hljs-comment">// &#x53C2;&#x6570;&#x6307;&#x9488;&#x6570;&#x7EC4;&#xFF0C;&#x5168;&#x90E8;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x7A7A;&#x6307;&#x9488;</span>
+
+  <span class="hljs-comment">// &#x5B58;&#x50A8;&#x539F;&#x6709;&#x7684;&#x53C2;&#x6570;</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; argc; ++i) {
+    x_argv[i - <span class="hljs-number">1</span>] = argv[i];
+  }
+  <span class="hljs-keyword">int</span> arg_beg = <span class="hljs-number">0</span>;          <span class="hljs-comment">// &#x53C2;&#x6570;&#x8D77;&#x59CB;&#x4E0B;&#x6807;</span>
+  <span class="hljs-keyword">int</span> arg_end = <span class="hljs-number">0</span>;          <span class="hljs-comment">// &#x53C2;&#x6570;&#x7ED3;&#x675F;&#x4E0B;&#x6807;</span>
+  <span class="hljs-keyword">int</span> arg_cnt = argc - <span class="hljs-number">1</span>;   <span class="hljs-comment">// &#x5F53;&#x524D;&#x53C2;&#x6570;&#x7D22;&#x5F15;</span>
+  <span class="hljs-keyword">enum</span> state st = S_WAIT;   <span class="hljs-comment">// &#x8D77;&#x59CB;&#x72B6;&#x6001;&#x7F6E;&#x4E3A;S_WAIT</span>
+
+  <span class="hljs-keyword">while</span> (st != S_END) {
+    <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x4E3A;&#x7A7A;&#x5219;&#x9000;&#x51FA;</span>
+    <span class="hljs-keyword">if</span> (read(<span class="hljs-number">0</span>, p, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) != <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>)) {
+      st = S_END;
+    } <span class="hljs-keyword">else</span> {
+      st = transform_state(st, get_char_type(*p));
+    }
+
+    <span class="hljs-keyword">if</span> (++arg_end &gt;= MAXSZ) {
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;xargs: arguments too long.\n&quot;</span>);
+      <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-keyword">switch</span> (st) {
+    <span class="hljs-keyword">case</span> S_WAIT:          <span class="hljs-comment">// &#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x53EA;&#x9700;&#x8981;&#x8BA9;&#x53C2;&#x6570;&#x8D77;&#x59CB;&#x6307;&#x9488;&#x524D;&#x79FB;</span>
+      ++arg_beg;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> S_ARG_END:       <span class="hljs-comment">// &#x53C2;&#x6570;&#x7ED3;&#x675F;&#xFF0C;&#x5C06;&#x53C2;&#x6570;&#x5730;&#x5740;&#x5B58;&#x5165;x_argv&#x6570;&#x7EC4;&#x4E2D;</span>
+      x_argv[arg_cnt++] = &amp;lines[arg_beg];
+      arg_beg = arg_end;
+      *p = <span class="hljs-string">&apos;\0&apos;</span>;          <span class="hljs-comment">// &#x66FF;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x7B26;</span>
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> S_ARG_LINE_END:  <span class="hljs-comment">// &#x5C06;&#x53C2;&#x6570;&#x5730;&#x5740;&#x5B58;&#x5165;x_argv&#x6570;&#x7EC4;&#x4E2D;&#x540C;&#x65F6;&#x6267;&#x884C;&#x6307;&#x4EE4;</span>
+      x_argv[arg_cnt++] = &amp;lines[arg_beg];
+      <span class="hljs-comment">// &#x4E0D;&#x52A0;break&#xFF0C;&#x56E0;&#x4E3A;&#x540E;&#x7EED;&#x5904;&#x7406;&#x540C;S_LINE_END</span>
+    <span class="hljs-keyword">case</span> S_LINE_END:      <span class="hljs-comment">// &#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5219;&#x4E3A;&#x5F53;&#x524D;&#x884C;&#x6267;&#x884C;&#x6307;&#x4EE4;</span>
+      arg_beg = arg_end;
+      *p = <span class="hljs-string">&apos;\0&apos;</span>;
+      <span class="hljs-keyword">if</span> (fork() == <span class="hljs-number">0</span>) {
+        exec(argv[<span class="hljs-number">1</span>], x_argv);
+      }
+      arg_cnt = argc - <span class="hljs-number">1</span>;
+      clearArgv(x_argv, arg_cnt);
+      wait(<span class="hljs-number">0</span>);
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">break</span>;
+    }
+
+    ++p;    <span class="hljs-comment">// &#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x5B58;&#x50A8;&#x4F4D;&#x7F6E;&#x540E;&#x79FB;</span>
+  }
+  <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);
+}
 </code></pre>
-<p>&#x66F4;&#x591A;&#x7528;&#x6CD5;&#x8BF7;&#x81EA;&#x884C;&#x641C;&#x7D22;</p>
-<p>(5). <strong>&#x5C06;&#x5B9E;&#x9A8C;&#x4EE3;&#x7801;&#x63A8;&#x9001;github&#x4ED3;&#x5E93;</strong></p>
-<p>&#x4F8B;&#x5982;&#xFF1A;&#x5C06;&#x5B9E;&#x9A8C;1&#x7528;&#x5230;&#x7684;<strong><em>util</em></strong>&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;github</p>
-<pre><code class="lang-bash">git checkout util
-git push github util:util
-</code></pre>
-<p>&#x9700;&#x8981;&#x4F60;&#x8F93;&#x5165;&#x8D26;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x63D0;&#x4EA4;&#x5C31;&#x6210;&#x529F;&#x4E86;</p>
-<p>&#x5176;&#x4ED6;&#x5B9E;&#x9A8C;&#x4ED3;&#x5E93;&#x7684;&#x63D0;&#x4EA4;&#x540C;&#x7406;</p>
-<p>(6). <strong>xv6&#x5B9E;&#x9A8C;git&#x5206;&#x652F;&#x5EFA;&#x8BAE;</strong></p>
-<p>&#x5EFA;&#x8BAE;&#x662F;&#x6BCF;&#x4E2A;&#x5B9E;&#x9A8C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5206;&#x652F;&#xFF0C;&#x4F8B;&#x5982;&#x5BF9;&#x4E8E;<strong><em>util</em></strong>&#x6765;&#x8BF4;</p>
-<pre><code class="lang-bash">git checkout util         <span class="hljs-comment"># &#x5207;&#x6362;&#x5230;util&#x5206;&#x652F;</span>
-git checkout -b util_<span class="hljs-built_in">test</span> <span class="hljs-comment"># &#x5EFA;&#x7ACB;&#x5E76;&#x5207;&#x6362;&#x5230;util&#x7684;&#x6D4B;&#x8BD5;&#x5206;&#x652F;</span>
-</code></pre>
-<p>&#x5F53;&#x4F60;&#x5728;<strong><em>util_test</em></strong>&#x5206;&#x652F;&#x4E2D;&#x6BCF;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4F5C;&#x4E1A;&#xFF0C;&#x8BF7;&#x63D0;&#x4EA4;&#xFF08;<code>git commit</code>&#xFF09;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x505A;&#x7684;&#x4FEE;&#x6539;&#x5408;&#x5E76;&#xFF08;<code>git merge</code>&#xFF09;&#x5230;<strong><em>util</em></strong>&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x4EA4;&#xFF08;<code>git push</code>&#xFF09;&#x5230;github</p>
-<pre><code class="lang-bash">git add .
-git commit -m <span class="hljs-string">&quot;&#x5B8C;&#x6210;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x4F5C;&#x4E1A;&quot;</span>
-git checkout util
-git merge util_<span class="hljs-built_in">test</span>
-git push github util:util
-</code></pre>
-<p>(7). <strong>&#x5176;&#x4ED6;</strong></p>
-<p>&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;gitee&#xFF0C;&#x9632;&#x6B62;github&#x6709;&#x65F6;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x7684;&#x95EE;&#x9898; </p>
 <footer class="page-footer"><span class="copyright">copyright by duguosheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-08-20 09:07:03
+2022-03-09 22:04:39
 </span></footer>
                                 
                                 </section>
@@ -1773,12 +2132,12 @@ git push github util:util
 
             
                 
-                <a href="../../tranlate_books/Journaling the Linux ext2fs Filesystem.html" class="navigation navigation-prev " aria-label="Previous page: Journaling the Linux ext2fs Filesystem">
+                <a href="summary.html" class="navigation navigation-prev " aria-label="Previous page: 实验解析">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../requirements/summary.html" class="navigation navigation-next " aria-label="Next page: 实验内容">
+                <a href="lab4.html" class="navigation navigation-next " aria-label="Next page: Lab4: Traps">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1789,7 +2148,7 @@ git push github util:util
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"版本控制","level":"3.1","depth":1,"next":{"title":"实验内容","level":"3.2","depth":1,"path":"labs/requirements/summary.md","ref":"labs/requirements/summary.md","articles":[{"title":"Lab1: Xv6 and Unix utilities","level":"3.2.1","depth":2,"path":"labs/requirements/lab1.md","ref":"labs/requirements/lab1.md","articles":[]},{"title":"Lab2: System calls","level":"3.2.2","depth":2,"path":"labs/requirements/lab2.md","ref":"labs/requirements/lab2.md","articles":[]},{"title":"Lab3: Page tables","level":"3.2.3","depth":2,"path":"labs/requirements/lab3.md","ref":"labs/requirements/lab3.md","articles":[]},{"title":"Lab4: Traps","level":"3.2.4","depth":2,"path":"labs/requirements/lab4.md","ref":"labs/requirements/lab4.md","articles":[]},{"title":"Lab5: Xv6 lazy page allocation","level":"3.2.5","depth":2,"path":"labs/requirements/lab5.md","ref":"labs/requirements/lab5.md","articles":[]},{"title":"Lab6: Copy-on-Write Fork for xv6","level":"3.2.6","depth":2,"path":"labs/requirements/lab6.md","ref":"labs/requirements/lab6.md","articles":[]},{"title":"Lab7: Multithreading","level":"3.2.7","depth":2,"path":"labs/requirements/lab7.md","ref":"labs/requirements/lab7.md","articles":[]},{"title":"Lab8: Locks","level":"3.2.8","depth":2,"path":"labs/requirements/lab8.md","ref":"labs/requirements/lab8.md","articles":[]},{"title":"Lab9: File system","level":"3.2.9","depth":2,"path":"labs/requirements/lab9.md","ref":"labs/requirements/lab9.md","articles":[]},{"title":"Lab10: Mmap","level":"3.2.10","depth":2,"path":"labs/requirements/lab10.md","ref":"labs/requirements/lab10.md","articles":[]},{"title":"Lab11: Network","level":"3.2.11","depth":2,"path":"labs/requirements/lab11.md","ref":"labs/requirements/lab11.md","articles":[]}]},"previous":{"title":"Journaling the Linux ext2fs Filesystem","level":"2.6","depth":1,"path":"tranlate_books/Journaling the Linux ext2fs Filesystem.md","ref":"tranlate_books/Journaling the Linux ext2fs Filesystem.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","github","expandable-chapters","code-optimize","splitter","pageview-count","donate","tbfed-pagefooter","flexible-alerts","ancre-navigation","custom-favicon","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/duguosheng"},"splitter":{},"search-pro":{},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"./images/book.ico","pageview-count":{},"github-buttons":{"repo":"duguosheng/6.S081-All-in-one","types":["star","watch","fork"],"size":"small"},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"flat","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":false},"expandable-chapters":{}},"theme":"default","author":"DuGuoSheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"6.S081 All-In-One","gitbook":"*"},"file":{"path":"labs/use_git/git1.md","mtime":"2021-08-20T01:07:03.762Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T14:08:20.528Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lab1: Util","level":"3.3.1","depth":2,"next":{"title":"Lab4: Traps","level":"3.3.2","depth":2,"path":"labs/answers/lab4.md","ref":"labs/answers/lab4.md","articles":[]},"previous":{"title":"实验解析","level":"3.3","depth":1,"path":"labs/answers/summary.md","ref":"labs/answers/summary.md","articles":[{"title":"Lab1: Util","level":"3.3.1","depth":2,"path":"labs/answers/lab1.md","ref":"labs/answers/lab1.md","articles":[]},{"title":"Lab4: Traps","level":"3.3.2","depth":2,"path":"labs/answers/lab4.md","ref":"labs/answers/lab4.md","articles":[]},{"title":"Lab5: Xv6 lazy page allocation","level":"3.3.3","depth":2,"path":"labs/answers/lab5.md","ref":"labs/answers/lab5.md","articles":[]},{"title":"Lab6: Copy-on-Write Fork for xv6","level":"3.3.4","depth":2,"path":"labs/answers/lab6.md","ref":"labs/answers/lab6.md","articles":[]},{"title":"Lab7: Multithreading","level":"3.3.5","depth":2,"path":"labs/answers/lab7.md","ref":"labs/answers/lab7.md","articles":[]},{"title":"Lab8: Locks","level":"3.3.6","depth":2,"path":"labs/answers/lab8.md","ref":"labs/answers/lab8.md","articles":[]},{"title":"Lab9: File system","level":"3.3.7","depth":2,"path":"labs/answers/lab9.md","ref":"labs/answers/lab9.md","articles":[]},{"title":"Lab10: Mmap","level":"3.3.8","depth":2,"path":"labs/answers/lab10.md","ref":"labs/answers/lab10.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","github","expandable-chapters","code-optimize","splitter","pageview-count","donate","tbfed-pagefooter","flexible-alerts","ancre-navigation","custom-favicon","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"copyright by duguosheng","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/duguosheng"},"splitter":{},"search-pro":{},"donate":{"alipay":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/alipay.png","alipayText":"支付宝","button":"打赏","title":"","wechat":"https://raw.githubusercontent.com/duguosheng/6.S081-All-in-one/main/images/wechatpay.png","wechatText":"微信"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"./images/book.ico","pageview-count":{},"github-buttons":{"repo":"duguosheng/6.S081-All-in-one","types":["star","watch","fork"],"size":"small"},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"flat","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":false},"expandable-chapters":{}},"theme":"default","author":"DuGuoSheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"6.S081 All-In-One","gitbook":"*"},"file":{"path":"labs/answers/lab1.md","mtime":"2022-03-09T14:04:39.657Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T14:08:20.528Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
